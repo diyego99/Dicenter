@@ -62,7 +62,7 @@ body {
 .btn-soporte { background: var(--accent-blue); color: white; margin-right: 10px; }
 .btn-software { background: #2d323a; color: white; }
 
-/* --- SIDEBAR CORREGIDA --- */
+/* --- SIDEBAR --- */
 .sidebar {
     width: var(--sidebar-w);
     background: var(--sidebar-dark);
@@ -99,7 +99,7 @@ body {
     color: var(--accent-blue);
 }
 
-/* --- FLYOUTS (SUB-CATEGORÍAS) --- */
+/* --- FLYOUTS --- */
 .flyout {
     display: none;
     position: absolute;
@@ -152,7 +152,7 @@ body {
     padding-left: 20px;
 }
 
-/* --- GRID Y NUEVOS ESTILOS DE PRECIO --- */
+/* --- GRID Y PRODUCTOS --- */
 .content-area {
     margin-left: var(--sidebar-w);
     margin-top: var(--header-h);
@@ -190,7 +190,6 @@ body {
     box-sizing: border-box;
 }
 
-/* Estilo del precio en la Grid */
 .product-price {
     color: var(--accent-blue);
     font-size: 22px;
@@ -251,7 +250,6 @@ body {
 .modal-thumbs { display: flex; gap: 10px; margin-top: 15px; overflow-x: auto; }
 .modal-thumbs img { width: 60px; height: 60px; background: white; border-radius: 8px; cursor: pointer; border: 1px solid #eee; }
 
-/* Eliminamos los botones de acciones anteriores y estilizamos el de WA */
 .wa-button {
     background: #25d366;
     color: white;
@@ -277,4 +275,72 @@ body {
     font-size: 35px;
     color: #444;
     cursor: pointer;
+}
+
+/* --- ADAPTACIÓN PARA CELULARES --- */
+@media (max-width: 768px) {
+    :root {
+        --sidebar-w: 0px;
+        --header-h: 140px; /* Header más alto para que quepa el logo y buscador */
+    }
+
+    .sidebar {
+        display: none; /* Ocultamos sidebar en móviles por ahora */
+    }
+
+    .top-bar {
+        flex-direction: column;
+        padding: 15px;
+        height: auto;
+    }
+
+    .logo-container .main-logo {
+        max-height: 60px;
+        margin-bottom: 10px;
+    }
+
+    .header-right {
+        display: none; /* Ocultamos botones de soporte en celular para limpiar vista */
+    }
+
+    .content-area {
+        margin-left: 0;
+        padding: 15px;
+        margin-top: var(--header-h);
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 productos por fila */
+        gap: 12px;
+    }
+
+    .product-card {
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .product-card img {
+        height: 150px;
+    }
+
+    .product-price {
+        font-size: 16px;
+    }
+
+    .modal-card {
+        width: 92%;
+        margin: 2vh auto;
+        padding: 20px;
+        max-height: 95vh;
+        overflow-y: auto;
+    }
+
+    .modal-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    #modalImg {
+        height: 280px;
+    }
 }
