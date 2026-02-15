@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DICENTER | Catálogo Premium</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="top-bar">
+        <div class="logo-container" onclick="location.reload()">
+            <img src="assets/logo.png" alt="DICENTER" class="main-logo">
+        </div>
+        
+        <div class="search-box">
+            <input type="text" id="mainSearch" placeholder="Buscar código o nombre...">
+        </div>
+
+        <div class="header-right">
+            <button class="btn-top btn-soporte">SOPORTE TÉCNICO</button>
+            <button class="btn-top btn-software">SOFTWARE 💾</button>
+        </div>
+    </header>
+
+    <div class="main-layout">
+        <aside class="sidebar">
+            <nav class="nav-menu">
+                <div class="nav-item">
+                    <span class="nav-label">Apple</span>
+                    <div class="flyout mega">
+                        <div class="flyout-content">
+                            <a href="#" onclick="filtrar('Imac')">Imac</a> <a href="#" onclick="filtrar('Macbook')">Macbook</a> <a href="#" onclick="filtrar('Mini Pc')">Mini Pc</a> <a href="#" onclick="filtrar('Iphone')">Iphone</a> <a href="#" onclick="filtrar('Ipad')">Ipad</a> <a href="#" onclick="filtrar('Smartwatch')">Smartwatch</a> <a href="#" onclick="filtrar('Monitor')">Monitor</a> <a href="#" onclick="filtrar('Mouse y Mousepad')">Mouse y Mousepad</a> <a href="#" onclick="filtrar('Teclado')">Teclado</a> <a href="#" onclick="filtrar('Headset')">Headset</a> <a href="#" onclick="filtrar('Streaming de Medios')">Streaming de Medios</a> <a href="#" onclick="filtrar('Speaker y Micro System')">Speaker y Micro System</a> <a href="#" onclick="filtrar('rastreador y GPS')">Rastreador y GPS</a> <a href="#" onclick="filtrar('Accesorios')">Accesorios</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <span class="nav-label">Notebook y Computadoras</span>
+                    <div class="flyout">
+                        <div class="flyout-content">
+                            <a href="#" onclick="filtrar('IMac')">IMac</a> <a href="#" onclick="filtrar('Computadoras')">Computadoras</a> <a href="#" onclick="filtrar('Notebook')">Notebook</a> <a href="#" onclick="filtrar('Macbook')">Macbook</a> <a href="#" onclick="filtrar('Mini PC')">Mini PC</a> <a href="#" onclick="filtrar('PC Montado')">PC Montado</a> <a href="#" onclick="filtrar('Fuente Cargador y Baterias para Notebook')">Fuente Cargador y Baterias para Notebook</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <span class="nav-label">Almacenamiento</span>
+                    <div class="flyout">
+                        <div class="flyout-content">
+                            <a href="#" onclick="filtrar('Memorias')">Memorias</a> <a href="#" onclick="filtrar('HD')">HD</a> <a href="#" onclick="filtrar('SSD')">SSD</a> <a href="#" onclick="filtrar('Pendrive')">Pendrive</a> <a href="#" onclick="filtrar('Accesorios para HD/SSD')">Accesorios para HD/SSD</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-item"><span class="nav-label">Placas Madres</span><div class="flyout"><div class="flyout-content"><a href="#" onclick="filtrar('MB Intel')">MB Intel</a> <a href="#" onclick="filtrar('MB AMD')">MB AMD</a></div></div></div>
+                <div class="nav-item"><span class="nav-label">Tarjetas Gráficas</span><div class="flyout"><div class="flyout-content"><a href="#" onclick="filtrar('VGA NVIDIA')">VGA NVIDIA</a> <a href="#" onclick="filtrar('VGA RADEON')">VGA RADEON</a></div></div></div>
+                <div class="nav-item"><span class="nav-label">Procesadores</span><div class="flyout"><div class="flyout-content"><a href="#" onclick="filtrar('CPU Intel')">CPU Intel</a> <a href="#" onclick="filtrar('CPU AMD')">CPU AMD</a></div></div></div>
+
+                <div class="nav-item">
+                    <span class="nav-label">Cooler</span>
+                    <div class="flyout">
+                        <div class="flyout-content">
+                            <a href="#" onclick="filtrar('Water Cooler')">Water Cooler</a> <a href="#" onclick="filtrar('Cooler para CPU')">Cooler para CPU</a> <a href="#" onclick="filtrar('Cooler para Gabinete')">Cooler para Gabinete</a> <a href="#" onclick="filtrar('Cooler para Notebook')">Cooler para Notebook</a> <a href="#" onclick="filtrar('Accesorios para Cooler')">Accesorios para Cooler</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-item"><span class="nav-label">Fuente de Alimentacion</span><div class="flyout"><div class="flyout-content"><a href="#" onclick="filtrar('Fuentes')">Fuentes</a></div></div></div>
+                <div class="nav-item"><span class="nav-label">Monitores</span><div class="flyout"><div class="flyout-content"><a href="#" onclick="filtrar('Monitores')">Monitores</a></div></div></div>
+                <div class="nav-item"><span class="nav-label">Gabinetes</span><div class="flyout"><div class="flyout-content"><a href="#" onclick="filtrar('Gabinetes')">Gabinetes</a></div></div></div>
+
+                <div class="nav-item">
+                    <span class="nav-label">Impresoras y Suministros</span>
+                    <div class="flyout">
+                        <div class="flyout-content">
+                            <a href="#" onclick="filtrar('Impresoras')">Impresoras</a> <a href="#" onclick="filtrar('Cartuchos Toners y Cintas')">Cartuchos Toners y Cintas</a> <a href="#" onclick="filtrar('Escáner')">Escáner</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <span class="nav-label">Periféricos</span>
+                    <div class="flyout mega">
+                        <div class="flyout-content">
+                            <a href="#" onclick="filtrar('Sillas y Mesas Gamer')">Sillas y Mesas Gamer</a> <a href="#" onclick="filtrar('Teclados')">Teclados</a> <a href="#" onclick="filtrar('Mouse')">Mouse</a> <a href="#" onclick="filtrar('Mousepad y Teclado Pad')">Mousepad y Teclado Pad</a> <a href="#" onclick="filtrar('Auriculares y Accesorios')">Auriculares y Accesorios</a> <a href="#" onclick="filtrar('Webcam')">Webcam</a> <a href="#" onclick="filtrar('Micrófono')">Micrófono</a> <a href="#" onclick="filtrar('Cables y Adaptadores')">Cables y Adaptadores</a> <a href="#" onclick="filtrar('Mochiles Fundas y Maletas')">Mochiles Fundas y Maletas</a> <a href="#" onclick="filtrar('Filtro de Linea y Extensión')">Filtro de Linea y Extensión</a> <a href="#" onclick="filtrar('Gravadores y Lectores CD/DVD/Blu-Ray')">Gravadores y Lectores CD/DVD/Blu-Ray</a> <a href="#" onclick="filtrar('Soporte para Monitores')">Soporte para Monitores</a> <a href="#" onclick="filtrar('Nobreak UPS y Estabilizadores')">Nobreak UPS y Estabilizadores</a> <a href="#" onclick="filtrar('Proyectos y Accesorios')">Proyectos y Accesorios</a> <a href="#" onclick="filtrar('Servidores')">Servidores</a> <a href="#" onclick="filtrar('Mesa de Diseño')">Mesa de Diseño</a> <a href="#" onclick="filtrar('Placa de Captura de Video')">Placa de Captura de Video</a> <a href="#" onclick="filtrar('Placa PCI')">Placa PCI</a> <a href="#" onclick="filtrar('Placa de Sonido')">Placa de Sonido</a> <a href="#" onclick="filtrar('Limpieza y Mantenimiento')">Limpieza y Mantenimiento</a> <a href="#" onclick="filtrar('Anteojos de Protección')">Anteojos de Protección</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <span class="nav-label">Red y Internet</span>
+                    <div class="flyout">
+                        <div class="flyout-content">
+                            <a href="#" onclick="filtrar('Router y Repetidor')">Router y Repetidor</a> <a href="#" onclick="filtrar('Adaptadores Wifi y Bluetooth')">Adaptadores Wifi y Bluetooth</a> <a href="#" onclick="filtrar('Cables de Red y Conectores')">Cables de Red y Conectores</a> <a href="#" onclick="filtrar('Hub')">Hub</a> <a href="#" onclick="filtrar('Alicate y Decapitador')">Alicate y Decapitador</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <span class="nav-label">Celulares y Tablets</span>
+                    <div class="flyout">
+                        <div class="flyout-content">
+                            <a href="#" onclick="filtrar('Celulares')">Celulares</a> <a href="#" onclick="filtrar('Tablets')">Tablets</a> <a href="#" onclick="filtrar('Teléfonos')">Teléfonos</a> <a href="#" onclick="filtrar('Accesorios para Celulares')">Accesorios para Celulares</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <span class="nav-label">Electrónicos</span>
+                    <div class="flyout mega">
+                        <div class="flyout-content">
+                            <a href="#" onclick="filtrar('Reloj Inteligente y Accesorios')">Reloj Inteligente y Accesorios</a> <a href="#" onclick="filtrar('Audio')">Audio</a> <a href="#" onclick="filtrar('TV y Video')">TV y Video</a> <a href="#" onclick="filtrar('Fotografias')">Fotografias</a> <a href="#" onclick="filtrar('Energia')">Energia</a> <a href="#" onclick="filtrar('Salud y Belleza')">Salud y Belleza</a> <a href="#" onclick="filtrar('Deporte y Actividad')">Deporte y Actividad</a> <a href="#" onclick="filtrar('Hogar y Decoración')">Hogar y Decoración</a> <a href="#" onclick="filtrar('Automotivos')">Automotivos</a> <a href="#" onclick="filtrar('Games')">Games</a> <a href="#" onclick="filtrar('Monitoreo y Seguridad')">Monitoreo y Seguridad</a> <a href="#" onclick="filtrar('Automatización Comercial')">Automatización Comercial</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+            <div class="grid-header">
+                <span id="productCounter">Dicenter - Innovación a tu alcance</span>
+            </div>
+            <div class="grid" id="productGrid"></div>
+        </main>
+    </div>
+
+    <div id="productModal" class="modal">
+        <div class="modal-card">
+            <span class="close-modal" onclick="cerrarModal()">&times;</span>
+            <div class="modal-grid">
+                <div class="modal-left">
+                    <img id="modalImg" src="">
+                    <div class="modal-thumbs" id="modalThumbs"></div>
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalCode" class="code-tag"></p>
+                    <div id="modalPrice" class="product-price" style="font-size: 32px; margin: 20px 0;"></div>
+                    <p style="color: var(--text-dim); font-size: 13px; margin-bottom: 25px;">* Precio sujeto a cambios. Consultar disponibilidad al instante.</p>
+                    <button class="wa-button" id="waBtn">CONSULTAR POR WHATSAPP 📲</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
