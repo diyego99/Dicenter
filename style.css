@@ -66,12 +66,8 @@ body {
   height: 44px;
   width: auto;
   object-fit: contain;
-  /* Adapta el logo al tema oscuro manteniendo el tono azul */
-  filter: brightness(0) invert(1) sepia(1) saturate(4) hue-rotate(200deg) brightness(1.15);
+  filter: none;
 }
-
-/* Si quieres mostrar el logo con sus colores originales,
-   simplemente eliminá las líneas de filter de arriba */
 
 .logo-fallback {
   display: none;
