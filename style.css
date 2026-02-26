@@ -755,12 +755,26 @@ body {
   .flyout.mob-open { display: block; }
   .flyout-inner,
   .flyout-inner.wide {
-    border-radius: 0;
-    border-left: none;
-    border-top: 2px solid var(--accent);
+    background: var(--sidebar) !important;
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-top: 2px solid var(--accent) !important;
     grid-template-columns: 1fr 1fr;
-    display: grid;
-    box-shadow: none;
+    display: grid !important;
+    box-shadow: none !important;
+    min-width: 0 !important;
+  }
+  .flyout-inner a {
+    color: var(--text-dim) !important;
+    background: transparent !important;
+    padding: 10px 16px !important;
+    font-size: 13px !important;
+    border-bottom: 1px solid rgba(255,255,255,.05) !important;
+  }
+  .flyout-inner a:hover,
+  .flyout-inner a:active {
+    color: #fff !important;
+    background: rgba(26,86,219,.15) !important;
   }
 
   .main { margin-left: 0; padding: 16px; }
