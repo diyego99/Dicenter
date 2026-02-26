@@ -1,149 +1,753 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DICENTER | Catálogo Premium</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DICENTER | Tecnología y Hogar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:          #12141a;
+  --surface:     #1c1f28;
+  --sidebar:     #181b23;
+  --card:        #1f2230;
+  --border:      #2a2e3d;
+  --accent:      #1a56db;
+  --accent-h:    #1e4fc7;
+  --accent-glow: rgba(26,86,219,.25);
+  --accent2:     #38bdf8;
+  --text:        #e8eaf0;
+  --text-dim:    #7c8299;
+  --text-muted:  #50556a;
+  --sidebar-w:   260px;
+  --header-h:    68px;
+  --green:       #22c55e;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+
+/* === HEADER === */
+.header {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: var(--sidebar);
+  border-bottom: 1px solid var(--border);
+  z-index: 9000;
+  display: flex; align-items: center;
+  padding: 0 20px; gap: 18px;
+}
+.logo-wrap {
+  flex-shrink: 0; display: flex; align-items: center;
+  cursor: pointer; width: var(--sidebar-w); padding-right: 14px;
+}
+.logo-wrap img {
+  height: 44px; width: auto; object-fit: contain;
+  filter: brightness(0) invert(1) sepia(1) saturate(4) hue-rotate(200deg) brightness(1.15);
+}
+.logo-fallback { display:none; font-family:'Syne',sans-serif; font-size:22px; font-weight:800; color:#fff; letter-spacing:-1px; }
+.logo-fallback em { color:var(--accent2); font-style:normal; }
+
+.search-wrap { flex: 1; max-width: 580px; position: relative; }
+.search-wrap input {
+  width: 100%; background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 10px; color: var(--text); font-family: 'DM Sans',sans-serif;
+  font-size: 14px; padding: 10px 44px 10px 16px; outline: none; transition: border-color .2s, box-shadow .2s;
+}
+.search-wrap input::placeholder { color: var(--text-muted); }
+.search-wrap input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+.search-icon { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 16px; pointer-events: none; }
+
+.header-right { margin-left: auto; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.btn-hdr { padding: 9px 16px; border-radius: 8px; border: none; font-family: 'DM Sans',sans-serif; font-weight: 600; font-size: 13px; cursor: pointer; transition: opacity .2s, transform .15s; white-space: nowrap; }
+.btn-hdr:hover { opacity: .88; transform: translateY(-1px); }
+.btn-support { background: var(--border); color: var(--text); }
+.btn-software { background: #2d3250; color: var(--accent2); border: 1px solid var(--border); }
+.btn-wa { background: var(--green); color: #fff; display:flex; align-items:center; gap:5px; }
+
+/* === LAYOUT === */
+.layout { display: flex; margin-top: var(--header-h); min-height: calc(100vh - var(--header-h)); }
+
+/* === SIDEBAR === */
+.sidebar {
+  width: var(--sidebar-w); background: var(--sidebar);
+  border-right: 1px solid var(--border);
+  position: fixed; top: var(--header-h); bottom: 0; left: 0;
+  overflow-y: auto; overflow-x: visible;
+  z-index: 8000; transition: transform .35s cubic-bezier(.4,0,.2,1);
+  scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+.nav-section { padding: 8px 0; }
+.nav-section + .nav-section { border-top: 1px solid var(--border); }
+
+.nav-item { position: relative; }
+
+.nav-label {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 11px 16px; font-size: 12.5px; font-weight: 600;
+  color: var(--text-dim); cursor: pointer; user-select: none;
+  transition: color .15s, background .15s; letter-spacing: .01em; gap: 6px;
+}
+.nav-label .ico { font-size: 15px; flex-shrink: 0; }
+.nav-label .lbl { flex: 1; }
+.nav-label .arrow { font-size: 9px; opacity: .45; transition: transform .2s, opacity .2s; flex-shrink: 0; }
+
+/* PC hover */
+@media (min-width: 769px) {
+  .nav-item:hover > .nav-label { color: var(--accent2); background: rgba(26,86,219,.1); }
+  .nav-item:hover > .nav-label .arrow { transform: rotate(90deg); opacity: 1; }
+  .nav-item:hover > .flyout { display: block; }
+}
+
+/* Flyout */
+.flyout {
+  display: none; position: absolute; left: 100%; top: 0;
+  z-index: 9500; padding-left: 6px; min-width: 220px;
+}
+.flyout-inner {
+  background: var(--card); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0;
+  box-shadow: 14px 8px 40px rgba(0,0,0,.7); padding: 8px 0;
+  max-height: 80vh; overflow-y: auto;
+  scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+}
+.flyout-inner.wide { min-width: 380px; display: grid; grid-template-columns: 1fr 1fr; }
+
+.flyout-inner a {
+  display: block; padding: 9px 18px; font-size: 13px; color: var(--text-dim);
+  text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.03);
+  transition: color .15s, background .15s, padding-left .15s;
+}
+.flyout-inner a:last-child { border-bottom: none; }
+.flyout-inner a:hover { color: var(--accent2); background: rgba(26,86,219,.1); padding-left: 24px; }
+
+.sidebar-sec-title {
+  padding: 14px 16px 4px; font-size: 10px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--text-muted); font-weight: 700;
+}
+
+/* === MAIN === */
+.main { margin-left: var(--sidebar-w); flex: 1; padding: 28px; min-width: 0; }
+
+/* === HERO === */
+.hero-grid {
+  display: grid; grid-template-columns: 1.7fr 1fr;
+  grid-template-rows: 200px 200px; gap: 14px; margin-bottom: 32px;
+}
+.hero-card {
+  border-radius: 16px; position: relative; overflow: hidden;
+  cursor: pointer; display: flex; align-items: flex-end;
+  transition: transform .25s;
+}
+.hero-card:hover { transform: scale(1.012); }
+.hero-card.span2 { grid-row: span 2; }
+.hc-1 { background: linear-gradient(135deg, #0d3a8e 0%, #051d55 100%); }
+.hc-2 { background: linear-gradient(135deg, #1c1c2e 0%, #2a2a40 100%); }
+.hc-3 { background: linear-gradient(135deg, #0a3d2e 0%, #052318 100%); }
+.hero-dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px); background-size: 20px 20px; }
+.hero-circle { position: absolute; border-radius: 50%; background: rgba(255,255,255,.05); }
+.hero-circle.c1 { width: 260px; height: 260px; right: -60px; top: -60px; }
+.hero-circle.c2 { width: 130px; height: 130px; right: 60px; bottom: -50px; }
+.hero-content { position: relative; z-index: 2; padding: 22px 26px; }
+.hero-tag { display: inline-block; background: rgba(255,255,255,.15); color: rgba(255,255,255,.85); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 3px 9px; border-radius: 20px; margin-bottom: 7px; }
+.hero-title { font-family: 'Syne',sans-serif; color: #fff; font-size: 26px; font-weight: 800; line-height: 1.1; margin-bottom: 5px; }
+.hero-card:not(.span2) .hero-title { font-size: 18px; }
+.hero-sub { color: rgba(255,255,255,.6); font-size: 13px; margin-bottom: 13px; }
+.hero-card:not(.span2) .hero-sub { font-size: 11px; }
+.hero-cta { display: inline-block; background: #fff; color: #111; font-weight: 700; font-size: 12px; padding: 7px 15px; border-radius: 50px; transition: transform .2s; }
+.hero-card:hover .hero-cta { transform: translateX(4px); }
+
+/* === SECTION HEAD === */
+.section-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.section-title { font-family: 'Syne',sans-serif; font-size: 20px; font-weight: 800; }
+.section-title span { color: var(--accent2); }
+.btn-reset { background: none; border: 1px solid var(--border); color: var(--text-dim); padding: 7px 13px; border-radius: 8px; font-size: 12px; font-family: 'DM Sans',sans-serif; cursor: pointer; transition: all .2s; }
+.btn-reset:hover { border-color: var(--accent); color: var(--accent); }
+
+/* === FILTER BAR === */
+.filter-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+.chip { padding: 7px 15px; border-radius: 8px; border: 1.5px solid var(--border); background: transparent; color: var(--text-dim); font-size: 12.5px; font-weight: 500; cursor: pointer; transition: all .15s; font-family: 'DM Sans',sans-serif; }
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+.chip.on { border-color: var(--accent); background: var(--accent); color: #fff; }
+.prod-count { margin-left: auto; font-size: 12px; color: var(--text-muted); }
+
+/* === PRODUCT GRID === */
+.prod-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-bottom: 50px; }
+
+.prod-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; overflow: hidden; cursor: pointer;
+  transition: border-color .2s, transform .2s, box-shadow .2s;
+  display: flex; flex-direction: column; position: relative;
+}
+.prod-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 8px 28px rgba(26,86,219,.2); }
+.prod-badge { position: absolute; top: 10px; left: 10px; background: #7c3aed; color: #fff; font-size: 9px; font-weight: 700; padding: 3px 7px; border-radius: 6px; letter-spacing: .04em; text-transform: uppercase; }
+.prod-img { height: 165px; background: #fff; display: flex; align-items: center; justify-content: center; padding: 12px; }
+.prod-img img { width: 100%; height: 100%; object-fit: contain; }
+.prod-body { padding: 12px 13px 13px; display: flex; flex-direction: column; flex: 1; }
+.prod-code { font-size: 10px; color: var(--text-muted); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 5px; }
+.prod-name { font-size: 12.5px; line-height: 1.45; color: var(--text); flex: 1; margin-bottom: 9px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.prod-price { font-family: 'Syne',sans-serif; font-size: 18px; font-weight: 800; color: var(--accent2); margin-bottom: 9px; }
+.prod-price.ask-price { font-size: 12.5px; color: var(--text-muted); font-family: 'DM Sans',sans-serif; font-weight: 500; }
+.btn-card { width: 100%; padding: 9px; border: none; border-radius: 8px; font-family: 'DM Sans',sans-serif; font-weight: 600; font-size: 13px; cursor: pointer; transition: opacity .2s; background: var(--accent); color: #fff; }
+.btn-card:hover { opacity: .88; }
+.btn-card.wa { background: var(--green); }
+
+/* === EMPTY === */
+.empty { grid-column: 1/-1; text-align: center; padding: 80px 20px; color: var(--text-muted); }
+.empty .e-icon { font-size: 52px; margin-bottom: 14px; }
+.empty h3 { font-family: 'Syne',sans-serif; font-size: 18px; color: var(--text-dim); margin-bottom: 6px; }
+
+/* === MODAL === */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.78); z-index: 99000; backdrop-filter: blur(6px); padding: 20px; overflow-y: auto; }
+.modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+.modal-box { background: var(--card); border: 1px solid var(--border); border-radius: 20px; width: 100%; max-width: 860px; margin: 20px auto; position: relative; overflow: hidden; animation: mIn .22s ease; }
+@keyframes mIn { from { opacity: 0; transform: translateY(16px) scale(.97); } to { opacity: 1; transform: none; } }
+.modal-close { position: absolute; top: 14px; right: 14px; width: 34px; height: 34px; background: var(--border); border: none; border-radius: 50%; color: var(--text-dim); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 5; transition: background .15s; }
+.modal-close:hover { background: #3a3e52; }
+.modal-grid { display: grid; grid-template-columns: 1fr 1.15fr; }
+.modal-gallery { background: #fff; padding: 28px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.modal-main-img { width: 100%; max-height: 280px; object-fit: contain; }
+.modal-thumbs { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.modal-thumbs img { width: 54px; height: 54px; object-fit: contain; border: 2px solid #e2e4ea; border-radius: 8px; cursor: pointer; padding: 3px; background: white; transition: border-color .15s; }
+.modal-thumbs img:hover, .modal-thumbs img.on { border-color: var(--accent); }
+.modal-info { padding: 30px 26px; display: flex; flex-direction: column; }
+.modal-code { font-size: 11px; color: var(--text-muted); letter-spacing: .08em; text-transform: uppercase; font-weight: 600; margin-bottom: 8px; }
+.modal-title { font-family: 'Syne',sans-serif; font-size: 19px; font-weight: 700; line-height: 1.3; margin-bottom: 18px; }
+.modal-price { font-family: 'Syne',sans-serif; font-size: 34px; font-weight: 800; color: var(--accent2); margin-bottom: 4px; }
+.modal-price.ask { font-size: 16px; color: var(--text-muted); font-family: 'DM Sans',sans-serif; font-weight: 500; }
+.modal-note { font-size: 11.5px; color: var(--text-muted); margin-bottom: 22px; }
+.modal-wa-btn { margin-top: auto; width: 100%; padding: 15px; background: var(--green); color: #fff; border: none; border-radius: 12px; font-family: 'DM Sans',sans-serif; font-weight: 700; font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: opacity .2s, transform .15s; }
+.modal-wa-btn:hover { opacity: .92; transform: translateY(-1px); }
+
+/* === SIDEBAR OVERLAY (mobile) === */
+.sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 7999; }
+.sidebar-overlay.open { display: block; }
+
+/* === MOBILE CAT BUTTON === */
+.mob-cat-btn { display: none; position: fixed; bottom: 22px; left: 22px; z-index: 10000; background: var(--accent); color: #fff; border: none; padding: 13px 20px; border-radius: 50px; font-family: 'DM Sans',sans-serif; font-weight: 700; font-size: 14px; box-shadow: 0 4px 20px rgba(26,86,219,.5); cursor: pointer; align-items: center; gap: 7px; }
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  :root { --sidebar-w: 82%; }
+  .header { padding: 0 12px; gap: 10px; }
+  .logo-wrap { width: auto; }
+  .logo-wrap img { height: 36px; }
+  .btn-support, .btn-software { display: none; }
+
+  .sidebar { transform: translateX(-100%); box-shadow: none; }
+  .sidebar.open { transform: translateX(0); box-shadow: 6px 0 40px rgba(0,0,0,.7); }
+
+  .flyout { position: static; padding-left: 0; display: none; }
+  .flyout.mob-open { display: block; }
+  .flyout-inner, .flyout-inner.wide { border-radius: 0; border-left: none; border-top: 2px solid var(--accent); grid-template-columns: 1fr 1fr; display: grid; box-shadow: none; }
+
+  .main { margin-left: 0; padding: 16px; }
+  .hero-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .hero-card.span2 { grid-row: span 1; }
+  .hero-title { font-size: 20px !important; }
+  .prod-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+  .modal-grid { grid-template-columns: 1fr; }
+  .modal-gallery { padding: 18px; }
+  .modal-info { padding: 18px; }
+  .modal-main-img { max-height: 210px; }
+  .mob-cat-btn { display: flex; }
+}
+</style>
 </head>
 <body>
 
-    <header class="top-bar">
-        <div class="logo-container" onclick="location.reload()">
-            <img src="assets/logo.png" alt="DICENTER" class="main-logo">
+<!-- HEADER -->
+<header class="header">
+  <div class="logo-wrap" onclick="resetCatalog()">
+    <img src="DICENTER_PERFIL_1.png" alt="DICENTER"
+         onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='block'">
+    <span class="logo-fallback" id="logoFallback">DICE<em>NTER</em></span>
+  </div>
+  <div class="search-wrap">
+    <input type="text" id="searchInput" placeholder="Buscar por código, nombre o categoría...">
+    <span class="search-icon">🔍</span>
+  </div>
+  <div class="header-right">
+    <button class="btn-hdr btn-support">🛠 Soporte</button>
+    <button class="btn-hdr btn-software">💾 Software</button>
+    <button class="btn-hdr btn-wa">💬 WhatsApp</button>
+  </div>
+</header>
+
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-sec-title">Categorías</div>
+    <div class="nav-section">
+
+      <div class="nav-item">
+        <div class="nav-label" onclick="handleNav(this,'Apple')">
+          <span class="ico">🍎</span><span class="lbl">Apple</span><span class="arrow">▶</span>
         </div>
-        
-        <div class="search-box">
-            <input type="text" id="mainSearch" placeholder="Buscar código o nombre...">
+        <div class="flyout"><div class="flyout-inner wide">
+          <a href="#" onclick="go('Imac')">iMac</a>
+          <a href="#" onclick="go('Macbook')">MacBook</a>
+          <a href="#" onclick="go('Mini Pc')">Mini PC</a>
+          <a href="#" onclick="go('Iphone')">iPhone</a>
+          <a href="#" onclick="go('Ipad')">iPad</a>
+          <a href="#" onclick="go('Smartwatch')">Smartwatch</a>
+          <a href="#" onclick="go('Monitor')">Monitor</a>
+          <a href="#" onclick="go('Mouse y Mousepad')">Mouse y Mousepad</a>
+          <a href="#" onclick="go('Teclado')">Teclado</a>
+          <a href="#" onclick="go('Headset')">Headset</a>
+          <a href="#" onclick="go('Streaming de Medios')">Streaming de Medios</a>
+          <a href="#" onclick="go('Speaker y Micro System')">Speaker y Micro System</a>
+          <a href="#" onclick="go('rastreador y GPS')">Rastreador y GPS</a>
+          <a href="#" onclick="go('Accesorios')">Accesorios</a>
+        </div></div>
+      </div>
+
+      <div class="nav-item">
+        <div class="nav-label" onclick="handleNav(this,'Notebook')">
+          <span class="ico">💻</span><span class="lbl">Notebook y Computadoras</span><span class="arrow">▶</span>
         </div>
+        <div class="flyout"><div class="flyout-inner">
+          <a href="#" onclick="go('IMac')">iMac</a>
+          <a href="#" onclick="go('Computadoras')">Computadoras</a>
+          <a href="#" onclick="go('Notebook')">Notebook</a>
+          <a href="#" onclick="go('Macbook')">MacBook</a>
+          <a href="#" onclick="go('Mini PC')">Mini PC</a>
+          <a href="#" onclick="go('PC Montado')">PC Montado</a>
+          <a href="#" onclick="go('Fuente Cargador y Baterias para Notebook')">Fuente / Cargador / Batería</a>
+        </div></div>
+      </div>
 
-        <div class="header-right">
-            <button class="btn-top btn-soporte">SOPORTE TÉCNICO</button>
-            <button class="btn-top btn-software">SOFTWARE 💾</button>
+      <div class="nav-item">
+        <div class="nav-label" onclick="handleNav(this,'SSD')">
+          <span class="ico">💾</span><span class="lbl">Almacenamiento</span><span class="arrow">▶</span>
         </div>
-    </header>
+        <div class="flyout"><div class="flyout-inner">
+          <a href="#" onclick="go('Memorias')">Memorias RAM</a>
+          <a href="#" onclick="go('HD')">Disco Duro (HD)</a>
+          <a href="#" onclick="go('SSD')">SSD</a>
+          <a href="#" onclick="go('Pendrive')">Pendrive</a>
+          <a href="#" onclick="go('Accesorios para HD/SSD')">Accesorios HD/SSD</a>
+        </div></div>
+      </div>
 
-    <div class="main-layout">
-        <aside class="sidebar">
-            <nav class="nav-menu">
-                <div class="nav-item">
-                    <span class="nav-label">Apple</span>
-                    <div class="flyout mega">
-                        <div class="flyout-content">
-                            <a href="#" onclick="filtrar('Imac')">Imac</a> <a href="#" onclick="filtrar('Macbook')">Macbook</a> <a href="#" onclick="filtrar('Mini Pc')">Mini Pc</a> <a href="#" onclick="filtrar('Iphone')">Iphone</a> <a href="#" onclick="filtrar('Ipad')">Ipad</a> <a href="#" onclick="filtrar('Smartwatch')">Smartwatch</a> <a href="#" onclick="filtrar('Monitor')">Monitor</a> <a href="#" onclick="filtrar('Mouse y Mousepad')">Mouse y Mousepad</a> <a href="#" onclick="filtrar('Teclado')">Teclado</a> <a href="#" onclick="filtrar('Headset')">Headset</a> <a href="#" onclick="filtrar('Streaming de Medios')">Streaming de Medios</a> <a href="#" onclick="filtrar('Speaker y Micro System')">Speaker y Micro System</a> <a href="#" onclick="filtrar('rastreador y GPS')">Rastreador y GPS</a> <a href="#" onclick="filtrar('Accesorios')">Accesorios</a>
-                        </div>
-                    </div>
-                </div>
+      <div class="nav-item">
+        <div class="nav-label" onclick="handleNav(this,'MB')">
+          <span class="ico">🖥</span><span class="lbl">Placas Madres</span><span class="arrow">▶</span>
+        </div>
+        <div class="flyout"><div class="flyout-inner">
+          <a href="#" onclick="go('MB Intel')">MB Intel</a>
+          <a href="#" onclick="go('MB AMD')">MB AMD</a>
+        </div></div>
+      </div>
 
-                <div class="nav-item">
-                    <span class="nav-label">Notebook y Computadoras</span>
-                    <div class="flyout">
-                        <div class="flyout-content">
-                            <a href="#" onclick="filtrar('IMac')">IMac</a> <a href="#" onclick="filtrar('Computadoras')">Computadoras</a> <a href="#" onclick="filtrar('Notebook')">Notebook</a> <a href="#" onclick="filtrar('Macbook')">Macbook</a> <a href="#" onclick="filtrar('Mini PC')">Mini PC</a> <a href="#" onclick="filtrar('PC Montado')">PC Montado</a> <a href="#" onclick="filtrar('Fuente Cargador y Baterias para Notebook')">Fuente Cargador y Baterias para Notebook</a>
-                        </div>
-                    </div>
-                </div>
+      <div class="nav-item">
+        <div class="nav-label" onclick="handleNav(this,'VGA')">
+          <span class="ico">🎮</span><span class="lbl">Tarjetas Gráficas</span><span class="arrow">▶</span>
+        </div>
+        <div class="flyout"><div class="flyout-inner">
+          <a href="#" onclick="go('VGA NVIDIA')">VGA NVIDIA</a>
+          <a href="#" onclick="go('VGA RADEON')">VGA Radeon</a>
+        </div></div>
+      </div>
 
-                <div class="nav-item">
-                    <span class="nav-label">Almacenamiento</span>
-                    <div class="flyout">
-                        <div class="flyout-content">
-                            <a href="#" onclick="filtrar('Memorias')">Memorias</a> <a href="#" onclick="filtrar('HD')">HD</a> <a href="#" onclick="filtrar('SSD')">SSD</a> <a href="#" onclick="filtrar('Pendrive')">Pendrive</a> <a href="#" onclick="filtrar('Accesorios para HD/SSD')">Accesorios para HD/SSD</a>
-                        </div>
-                    </div>
-                </div>
+      <div class="nav-item">
+        <div class="nav-label" onclick="handleNav(this,'CPU')">
+          <span class="ico">⚙️</span><span class="lbl">Procesadores</span><span class="arrow">▶</span>
+        </div>
+        <div class="flyout"><div class="flyout-inner">
+          <a href="#" onclick="go('CPU Intel')">CPU Intel</a>
+          <a href="#" onclick="go('CPU AMD')">CPU AMD</a>
+        </div></div>
+      </div>
 
-                <div class="nav-item"><span class="nav-label">Placas Madres</span><div class="flyout"><div class="flyout-content"><a href="#" onclick="filtrar('MB Intel')">MB Intel</a> <a href="#" onclick="filtrar('MB AMD')">MB AMD</a></div></div></div>
-                <div class="nav-item"><span class="nav-label">Tarjetas Gráficas</span><div class="flyout"><div class="flyout-content"><a href="#" onclick="filtrar('VGA NVIDIA')">VGA NVIDIA</a> <a href="#" onclick="filtrar('VGA RADEON')">VGA RADEON</a></div></div></div>
-                <div class="nav-item"><span class="nav-label">Procesadores</span><div class="flyout"><div class="flyout-content"><a href="#" onclick="filtrar('CPU Intel')">CPU Intel</a> <a href="#" onclick="filtrar('CPU AMD')">CPU AMD</a></div></div></div>
+      <div class="nav-item">
+        <div class="nav-label" onclick="handleNav(this,'Cooler')">
+          <span class="ico">🌀</span><span class="lbl">Cooler</span><span class="arrow">▶</span>
+        </div>
+        <div class="flyout"><div class="flyout-inner">
+          <a href="#" onclick="go('Water Cooler')">Water Cooler</a>
+          <a href="#" onclick="go('Cooler para CPU')">Cooler para CPU</a>
+          <a href="#" onclick="go('Cooler para Gabinete')">Cooler para Gabinete</a>
+          <a href="#" onclick="go('Cooler para Notebook')">Cooler para Notebook</a>
+          <a href="#" onclick="go('Accesorios para Cooler')">Accesorios para Cooler</a>
+        </div></div>
+      </div>
 
-                <div class="nav-item">
-                    <span class="nav-label">Cooler</span>
-                    <div class="flyout">
-                        <div class="flyout-content">
-                            <a href="#" onclick="filtrar('Water Cooler')">Water Cooler</a> <a href="#" onclick="filtrar('Cooler para CPU')">Cooler para CPU</a> <a href="#" onclick="filtrar('Cooler para Gabinete')">Cooler para Gabinete</a> <a href="#" onclick="filtrar('Cooler para Notebook')">Cooler para Notebook</a> <a href="#" onclick="filtrar('Accesorios para Cooler')">Accesorios para Cooler</a>
-                        </div>
-                    </div>
-                </div>
+      <div class="nav-item">
+        <div class="nav-label" onclick="go('Fuentes')">
+          <span class="ico">⚡</span><span class="lbl">Fuente de Alimentación</span>
+        </div>
+      </div>
 
-                <div class="nav-item"><span class="nav-label">Fuente de Alimentacion</span><div class="flyout"><div class="flyout-content"><a href="#" onclick="filtrar('Fuentes')">Fuentes</a></div></div></div>
-                <div class="nav-item"><span class="nav-label">Monitores</span><div class="flyout"><div class="flyout-content"><a href="#" onclick="filtrar('Monitores')">Monitores</a></div></div></div>
-                <div class="nav-item"><span class="nav-label">Gabinetes</span><div class="flyout"><div class="flyout-content"><a href="#" onclick="filtrar('Gabinetes')">Gabinetes</a></div></div></div>
+      <div class="nav-item">
+        <div class="nav-label" onclick="go('Monitores')">
+          <span class="ico">🖥️</span><span class="lbl">Monitores</span>
+        </div>
+      </div>
 
-                <div class="nav-item">
-                    <span class="nav-label">Impresoras y Suministros</span>
-                    <div class="flyout">
-                        <div class="flyout-content">
-                            <a href="#" onclick="filtrar('Impresoras')">Impresoras</a> <a href="#" onclick="filtrar('Cartuchos Toners y Cintas')">Cartuchos Toners y Cintas</a> <a href="#" onclick="filtrar('Escáner')">Escáner</a>
-                        </div>
-                    </div>
-                </div>
+      <div class="nav-item">
+        <div class="nav-label" onclick="go('Gabinetes')">
+          <span class="ico">🗄️</span><span class="lbl">Gabinetes</span>
+        </div>
+      </div>
 
-                <div class="nav-item">
-                    <span class="nav-label">Periféricos</span>
-                    <div class="flyout mega">
-                        <div class="flyout-content">
-                            <a href="#" onclick="filtrar('Sillas y Mesas Gamer')">Sillas y Mesas Gamer</a> <a href="#" onclick="filtrar('Teclados')">Teclados</a> <a href="#" onclick="filtrar('Mouse')">Mouse</a> <a href="#" onclick="filtrar('Mousepad y Teclado Pad')">Mousepad y Teclado Pad</a> <a href="#" onclick="filtrar('Auriculares y Accesorios')">Auriculares y Accesorios</a> <a href="#" onclick="filtrar('Webcam')">Webcam</a> <a href="#" onclick="filtrar('Micrófono')">Micrófono</a> <a href="#" onclick="filtrar('Cables y Adaptadores')">Cables y Adaptadores</a> <a href="#" onclick="filtrar('Mochiles Fundas y Maletas')">Mochiles Fundas y Maletas</a> <a href="#" onclick="filtrar('Filtro de Linea y Extensión')">Filtro de Linea y Extensión</a> <a href="#" onclick="filtrar('Gravadores y Lectores CD/DVD/Blu-Ray')">Gravadores y Lectores CD/DVD/Blu-Ray</a> <a href="#" onclick="filtrar('Soporte para Monitores')">Soporte para Monitores</a> <a href="#" onclick="filtrar('Nobreak UPS y Estabilizadores')">Nobreak UPS y Estabilizadores</a> <a href="#" onclick="filtrar('Proyectos y Accesorios')">Proyectos y Accesorios</a> <a href="#" onclick="filtrar('Servidores')">Servidores</a> <a href="#" onclick="filtrar('Mesa de Diseño')">Mesa de Diseño</a> <a href="#" onclick="filtrar('Placa de Captura de Video')">Placa de Captura de Video</a> <a href="#" onclick="filtrar('Placa PCI')">Placa PCI</a> <a href="#" onclick="filtrar('Placa de Sonido')">Placa de Sonido</a> <a href="#" onclick="filtrar('Limpieza y Mantenimiento')">Limpieza y Mantenimiento</a> <a href="#" onclick="filtrar('Anteojos de Protección')">Anteojos de Protección</a>
-                        </div>
-                    </div>
-                </div>
+      <div class="nav-item">
+        <div class="nav-label" onclick="handleNav(this,'Impresoras')">
+          <span class="ico">🖨️</span><span class="lbl">Impresoras y Suministros</span><span class="arrow">▶</span>
+        </div>
+        <div class="flyout"><div class="flyout-inner">
+          <a href="#" onclick="go('Impresoras')">Impresoras</a>
+          <a href="#" onclick="go('Cartuchos Toners y Cintas')">Cartuchos / Toners / Cintas</a>
+          <a href="#" onclick="go('Escáner')">Escáner</a>
+        </div></div>
+      </div>
 
-                <div class="nav-item">
-                    <span class="nav-label">Red y Internet</span>
-                    <div class="flyout">
-                        <div class="flyout-content">
-                            <a href="#" onclick="filtrar('Router y Repetidor')">Router y Repetidor</a> <a href="#" onclick="filtrar('Adaptadores Wifi y Bluetooth')">Adaptadores Wifi y Bluetooth</a> <a href="#" onclick="filtrar('Cables de Red y Conectores')">Cables de Red y Conectores</a> <a href="#" onclick="filtrar('Hub')">Hub</a> <a href="#" onclick="filtrar('Alicate y Decapitador')">Alicate y Decapitador</a>
-                        </div>
-                    </div>
-                </div>
+      <div class="nav-item">
+        <div class="nav-label" onclick="handleNav(this,'Periféricos')">
+          <span class="ico">🖱</span><span class="lbl">Periféricos</span><span class="arrow">▶</span>
+        </div>
+        <div class="flyout"><div class="flyout-inner wide">
+          <a href="#" onclick="go('Sillas y Mesas Gamer')">Sillas y Mesas Gamer</a>
+          <a href="#" onclick="go('Teclados')">Teclados</a>
+          <a href="#" onclick="go('Mouse')">Mouse</a>
+          <a href="#" onclick="go('Mousepad y Teclado Pad')">Mousepad y Teclado Pad</a>
+          <a href="#" onclick="go('Auriculares y Accesorios')">Auriculares y Accesorios</a>
+          <a href="#" onclick="go('Webcam')">Webcam</a>
+          <a href="#" onclick="go('Micrófono')">Micrófono</a>
+          <a href="#" onclick="go('Cables y Adaptadores')">Cables y Adaptadores</a>
+          <a href="#" onclick="go('Mochiles Fundas y Maletas')">Mochilas / Fundas / Maletas</a>
+          <a href="#" onclick="go('Filtro de Linea y Extensión')">Filtro de Línea y Extensión</a>
+          <a href="#" onclick="go('Gravadores y Lectores CD/DVD/Blu-Ray')">CD / DVD / Blu-Ray</a>
+          <a href="#" onclick="go('Soporte para Monitores')">Soporte para Monitores</a>
+          <a href="#" onclick="go('Nobreak UPS y Estabilizadores')">Nobreak UPS y Estabilizadores</a>
+          <a href="#" onclick="go('Proyectos y Accesorios')">Proyectores y Accesorios</a>
+          <a href="#" onclick="go('Servidores')">Servidores</a>
+          <a href="#" onclick="go('Mesa de Diseño')">Mesa de Diseño</a>
+          <a href="#" onclick="go('Placa de Captura de Video')">Placa de Captura de Video</a>
+          <a href="#" onclick="go('Placa PCI')">Placa PCI</a>
+          <a href="#" onclick="go('Placa de Sonido')">Placa de Sonido</a>
+          <a href="#" onclick="go('Limpieza y Mantenimiento')">Limpieza y Mantenimiento</a>
+          <a href="#" onclick="go('Anteojos de Protección')">Anteojos de Protección</a>
+        </div></div>
+      </div>
 
-                <div class="nav-item">
-                    <span class="nav-label">Celulares y Tablets</span>
-                    <div class="flyout">
-                        <div class="flyout-content">
-                            <a href="#" onclick="filtrar('Celulares')">Celulares</a> <a href="#" onclick="filtrar('Tablets')">Tablets</a> <a href="#" onclick="filtrar('Teléfonos')">Teléfonos</a> <a href="#" onclick="filtrar('Accesorios para Celulares')">Accesorios para Celulares</a>
-                        </div>
-                    </div>
-                </div>
+      <div class="nav-item">
+        <div class="nav-label" onclick="handleNav(this,'Router')">
+          <span class="ico">🌐</span><span class="lbl">Red y Internet</span><span class="arrow">▶</span>
+        </div>
+        <div class="flyout"><div class="flyout-inner">
+          <a href="#" onclick="go('Router y Repetidor')">Router y Repetidor</a>
+          <a href="#" onclick="go('Adaptadores Wifi y Bluetooth')">Adaptadores WiFi y Bluetooth</a>
+          <a href="#" onclick="go('Cables de Red y Conectores')">Cables de Red y Conectores</a>
+          <a href="#" onclick="go('Hub')">Hub</a>
+          <a href="#" onclick="go('Alicate y Decapitador')">Alicate y Decapitador</a>
+        </div></div>
+      </div>
 
-                <div class="nav-item">
-                    <span class="nav-label">Electrónicos</span>
-                    <div class="flyout mega">
-                        <div class="flyout-content">
-                            <a href="#" onclick="filtrar('Reloj Inteligente y Accesorios')">Reloj Inteligente y Accesorios</a> <a href="#" onclick="filtrar('Audio')">Audio</a> <a href="#" onclick="filtrar('TV y Video')">TV y Video</a> <a href="#" onclick="filtrar('Fotografias')">Fotografias</a> <a href="#" onclick="filtrar('Energia')">Energia</a> <a href="#" onclick="filtrar('Salud y Belleza')">Salud y Belleza</a> <a href="#" onclick="filtrar('Deporte y Actividad')">Deporte y Actividad</a> <a href="#" onclick="filtrar('Hogar y Decoración')">Hogar y Decoración</a> <a href="#" onclick="filtrar('Automotivos')">Automotivos</a> <a href="#" onclick="filtrar('Games')">Games</a> <a href="#" onclick="filtrar('Monitoreo y Seguridad')">Monitoreo y Seguridad</a> <a href="#" onclick="filtrar('Automatización Comercial')">Automatización Comercial</a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </aside>
+      <div class="nav-item">
+        <div class="nav-label" onclick="handleNav(this,'Celulares')">
+          <span class="ico">📱</span><span class="lbl">Celulares y Tablets</span><span class="arrow">▶</span>
+        </div>
+        <div class="flyout"><div class="flyout-inner">
+          <a href="#" onclick="go('Celulares')">Celulares</a>
+          <a href="#" onclick="go('Tablets')">Tablets</a>
+          <a href="#" onclick="go('Teléfonos')">Teléfonos</a>
+          <a href="#" onclick="go('Accesorios para Celulares')">Accesorios para Celulares</a>
+        </div></div>
+      </div>
 
-        <main class="content-area">
-            <div class="grid-header">
-                <span id="productCounter">Dicenter - Innovación a tu alcance</span>
-            </div>
-            <div class="grid" id="productGrid"></div>
-        </main>
+      <div class="nav-item">
+        <div class="nav-label" onclick="handleNav(this,'Electrónicos')">
+          <span class="ico">⚡</span><span class="lbl">Electrónicos</span><span class="arrow">▶</span>
+        </div>
+        <div class="flyout"><div class="flyout-inner wide">
+          <a href="#" onclick="go('Reloj Inteligente y Accesorios')">Reloj Inteligente y Accesorios</a>
+          <a href="#" onclick="go('Audio')">Audio</a>
+          <a href="#" onclick="go('TV y Video')">TV y Video</a>
+          <a href="#" onclick="go('Fotografias')">Fotografía</a>
+          <a href="#" onclick="go('Energia')">Energía</a>
+          <a href="#" onclick="go('Salud y Belleza')">Salud y Belleza</a>
+          <a href="#" onclick="go('Deporte y Actividad')">Deporte y Actividad</a>
+          <a href="#" onclick="go('Hogar y Decoración')">Hogar y Decoración</a>
+          <a href="#" onclick="go('Automotivos')">Automotivos</a>
+          <a href="#" onclick="go('Games')">Games</a>
+          <a href="#" onclick="go('Monitoreo y Seguridad')">Monitoreo y Seguridad</a>
+          <a href="#" onclick="go('Automatización Comercial')">Automatización Comercial</a>
+        </div></div>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main" id="mainArea">
+
+    <div class="hero-grid" id="heroGrid">
+      <div class="hero-card hc-1 span2" onclick="go('Apple')">
+        <div class="hero-dots"></div>
+        <div class="hero-circle c1"></div><div class="hero-circle c2"></div>
+        <div class="hero-content">
+          <div class="hero-tag">Ecosistema completo</div>
+          <div class="hero-title">Apple Premium</div>
+          <div class="hero-sub">iPhone · MacBook · iPad · Accesorios</div>
+          <span class="hero-cta">Ver productos →</span>
+        </div>
+      </div>
+      <div class="hero-card hc-2" onclick="go('VGA NVIDIA')">
+        <div class="hero-dots"></div><div class="hero-circle c1"></div>
+        <div class="hero-content">
+          <div class="hero-tag">Gaming</div>
+          <div class="hero-title">Tarjetas NVIDIA</div>
+          <div class="hero-sub">RTX Series disponibles</div>
+          <span class="hero-cta">Consultar →</span>
+        </div>
+      </div>
+      <div class="hero-card hc-3" onclick="go('SSD')">
+        <div class="hero-dots"></div><div class="hero-circle c1"></div>
+        <div class="hero-content">
+          <div class="hero-tag">Almacenamiento</div>
+          <div class="hero-title">SSD & HD</div>
+          <div class="hero-sub">Velocidad extrema para tu equipo</div>
+          <span class="hero-cta">Ver stock →</span>
+        </div>
+      </div>
     </div>
 
-    <div id="productModal" class="modal">
-        <div class="modal-card">
-            <span class="close-modal" onclick="cerrarModal()">&times;</span>
-            <div class="modal-grid">
-                <div class="modal-left">
-                    <img id="modalImg" src="">
-                    <div class="modal-thumbs" id="modalThumbs"></div>
-                </div>
-                <div class="modal-info">
-                    <h2 id="modalTitle"></h2>
-                    <p id="modalCode" class="code-tag"></p>
-                    <div id="modalPrice" class="product-price" style="font-size: 32px; margin: 20px 0;"></div>
-                    <p style="color: var(--text-dim); font-size: 13px; margin-bottom: 25px;">* Precio sujeto a cambios. Consultar disponibilidad al instante.</p>
-                    <button class="wa-button" id="waBtn">CONSULTAR POR WHATSAPP 📲</button>
-                </div>
-            </div>
-        </div>
+    <div class="section-head">
+      <h2 class="section-title" id="sectionTitle">Catálogo <span>completo</span></h2>
+      <button class="btn-reset" onclick="resetCatalog()">↩ Ver todo</button>
     </div>
 
-    <script src="script.js"></script>
+    <div class="filter-bar">
+      <button class="chip on" onclick="setFilter(this,'todos')">Todos</button>
+      <button class="chip" onclick="setFilter(this,'precio')">Con precio</button>
+      <button class="chip" onclick="setFilter(this,'consultar')">A consultar</button>
+      <span class="prod-count" id="prodCount"></span>
+    </div>
+
+    <div class="prod-grid" id="prodGrid"></div>
+  </main>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="checkClose(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-grid">
+      <div class="modal-gallery">
+        <img class="modal-main-img" id="mImg" src="" alt="">
+        <div class="modal-thumbs" id="mThumbs"></div>
+      </div>
+      <div class="modal-info">
+        <div class="modal-code" id="mCode"></div>
+        <h2 class="modal-title" id="mTitle"></h2>
+        <div class="modal-price" id="mPrice"></div>
+        <p class="modal-note">* Precio en guaraníes. Sujeto a cambios. Consultar disponibilidad.</p>
+        <button class="modal-wa-btn" id="mWaBtn">💬 Consultar por WhatsApp</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button class="mob-cat-btn" onclick="toggleSidebar()">☰ Categorías</button>
+
+<script>
+const productos = [
+    { codigo: "39339", nombre: "Abridor de Vino Quanta Blue LED QTAVE91 - Gris", cat: "Hogar y Decoración", precio: "130.000", fotos: ["39339_1.jpg","39339_2.jpg","39339_3.jpg"] },
+    { codigo: "17683", nombre: "Adaptador Bluetooth Dongle CSR 4.0 BT / USB / PC", cat: "Adaptadores Wifi y Bluetooth", precio: "35.000", fotos: ["17683_1.jpg","17683_2.jpg","17683_3.jpg"] },
+    { codigo: "35087", nombre: "Adaptador Bluetooth TP-Link UB5A BT 5.3 / USB - Negro", cat: "Adaptadores Wifi y Bluetooth", precio: "55.000", fotos: ["35087_1.jpg","35087_2.jpg","35087_3.jpg"] },
+    { codigo: "20890", nombre: "Adaptador Bluetooth Dongle CSR 5.0 BT / USB / PC", cat: "Adaptadores Wifi y Bluetooth", precio: "42.000", fotos: ["20890_1.jpg","20890_2.jpg","20890_3.jpg"] },
+    { codigo: "20211", nombre: "Adaptador Conector HDMI Doble Hembra", cat: "Cables y Adaptadores", precio: "30.000", fotos: ["20211_1.jpg","20211_2.jpg","20211_3.jpg"] },
+    { codigo: "13539", nombre: "Adaptador Conversor HDMI2AV Full HD 1080 HDMI / RCA - Blanco", cat: "Cables y Adaptadores", precio: "65.000", fotos: ["13539_1.jpg","13539_2.jpg","13539_3.jpg"] },
+    { codigo: "13896", nombre: "Adaptador Extender / RJ45 Bege", cat: "Cables y Adaptadores", precio: "10.000", fotos: ["13896_1.jpg","13896_2.jpg","13896_3.jpg"] },
+    { codigo: "49827", nombre: "Adaptador Extender Satellite A-HD132 HDMI Wireless 1080P 150M", cat: "Red y Internet", precio: "725.000", fotos: ["49827_1.jpg","49827_2.jpg","49827_3.jpg"] },
+    { codigo: "51946", nombre: "Moldura de Contacto para Procesador Thermalright Secure Frame V2 AM5 - Negro", cat: "Accesorios para Cooler", precio: "88.000", fotos: ["51946_1.jpg","51946_2.jpg","51946_3.jpg"] },
+    { codigo: "51947", nombre: "Moldura de Contato para Processador Thermalright LGA1700-BCF - Negro", cat: "Accesorios para Cooler", precio: "88.000", fotos: ["51947_1.jpg","51947_2.jpg","51947_3.jpg"] },
+    { codigo: "30272", nombre: "Adaptador Receiver de Audio 3.5MM Bluetooth Quanta QTRABT10", cat: "Electrónicos", precio: "56.000", fotos: ["30272_1.jpg","30272_2.jpg","30272_3.jpg"] },
+    { codigo: "53347", nombre: "Adaptador Tp-Link Tapo P110 Smart Plug Alexa - Blanco", cat: "Electrónicos", precio: "70.000", fotos: ["53347_1.jpg","53347_2.jpg","53347_3.jpg"] },
+    { codigo: "43599", nombre: "Depilador Nasal Quanta QTCET21 - Negro (Kit 2 en 1)", cat: "Electrónicos", precio: "50.000", fotos: ["43599_1.jpg","43599_2.jpg","43599_3.jpg"] },
+    { codigo: "45871", nombre: "Apresentador Laser Quanta QTPLEC20 - Negro", cat: "Periféricos", precio: "77.000", fotos: ["45871_1.jpg","45871_2.jpg","45871_3.jpg"] },
+    { codigo: "45870", nombre: "Apresentador Laser Quanta QTPLM30 - Negro", cat: "Periféricos", precio: "215.000", fotos: ["45870_1.jpg","45870_2.jpg","45870_3.jpg"] },
+    { codigo: "49083", nombre: "Apresentador Laser Satellite LR-25R - Negro", cat: "Periféricos", precio: "60.000", fotos: ["49083_1.jpg","49083_2.jpg","49083_3.jpg"] },
+    { codigo: "48916", nombre: "Apresentador Laser Satellite LR-26R - Negro", cat: "Periféricos", precio: "0", fotos: ["48916_1.jpg","48916_2.jpg","48916_3.jpg"] },
+    { codigo: "54790", nombre: "Presentador Laser Satellite LR-27R - Negro", cat: "Periféricos", precio: "0", fotos: ["54790_1.jpg","54790_2.jpg","54790_3.jpg"] },
+    { codigo: "54791", nombre: "Presentador Laser Satellite LR-28R - Negro", cat: "Periféricos", precio: "0", fotos: ["54791_1.jpg","54791_2.jpg","54791_3.jpg"] },
+    { codigo: "48536", nombre: "Ar Acondicionado Portátil Midea MD115V-12PORMID 12000BTU", cat: "Electrónicos", precio: "0", fotos: ["48536_1.jpg","48536_2.jpg","48536_3.jpg"] },
+    { codigo: "56049", nombre: "Aire Acondicionado Split Amenews Wi-Fi Kit 12000BTU - Inverter", cat: "Electrónicos", precio: "0", fotos: ["56049_1.jpg","56049_2.jpg","56049_3.jpg"] },
+    { codigo: "56050", nombre: "Aire Acondicionado Split Amenews Wi-Fi Kit 18000BTU - Inverter", cat: "Electrónicos", precio: "0", fotos: ["56050_1.jpg","56050_2.jpg","56050_3.jpg"] },
+    { codigo: "53181", nombre: "Aire Condicionado Split Black+Decker 12K-T Kit 12000BTU - Inverter", cat: "Electrónicos", precio: "0", fotos: ["53181_1.jpg","53181_2.jpg","53181_3.jpg"] },
+    { codigo: "55367", nombre: "Aire Acondicionado Split Geminis GS-INV12BR Kit 12000BTU", cat: "Electrónicos", precio: "0", fotos: ["55367_1.jpg","55367_2.jpg","55367_3.jpg"] },
+    { codigo: "51287", nombre: "Aire Acondicionado Split HYE AC12INV-BR Kit 12000BTU - Inverter", cat: "Electrónicos", precio: "0", fotos: ["51287_1.jpg","51287_2.jpg","51287_3.jpg"] },
+    { codigo: "55472", nombre: "Aire Acondicionado Split Midea MD-12000INVMD Kit 12000BTU - Inverter", cat: "Electrónicos", precio: "0", fotos: ["55472_1.jpg","55472_2.jpg","55472_3.jpg"] },
+    { codigo: "48539", nombre: "Aire Acondicionado Split Midea MD-12MID Kit 12000BTU", cat: "Electrónicos", precio: "0", fotos: ["48539_1.jpg","48539_2.jpg","48539_3.jpg"] },
+    { codigo: "55682", nombre: "Aire Acondicionado Split Midea MDIA-18INV AI Kit 18000BTU - Inverter", cat: "Electrónicos", precio: "0", fotos: ["55682_1.jpg","55682_2.jpg","55682_3.jpg"] },
+    { codigo: "55428", nombre: "Aire Acondicionado Split Smartfy AR01 Kit 12000BTU 220V", cat: "Electrónicos", precio: "0", fotos: ["55428_1.jpg","55428_2.jpg","55428_3.jpg"] },
+    { codigo: "56404", nombre: "Aspirador 4LIFE FL102PB Sopravac Vacuum Portátil - Negro", cat: "Electrónicos", precio: "0", fotos: ["56404_1.jpg","56404_2.jpg","56404_3.jpg"] },
+    { codigo: "43426", nombre: "Aspirador Tp-Link Robot Vacuum-mop Cleaner Tapo RV10 - Blanco", cat: "Electrónicos", precio: "0", fotos: ["43426_1.jpg","43426_2.jpg","43426_3.jpg"] },
+    { codigo: "39360", nombre: "Aspirador Xiaomi Mi Robot Vacuum E10 B112 Bivolt - Blanco", cat: "Electrónicos", precio: "0", fotos: ["39360_1.jpg","39360_2.jpg","39360_3.jpg"] },
+    { codigo: "50544", nombre: "Aspirador Xiaomi Mi Vacuum Cleaner G20 D205 - Blanco", cat: "Electrónicos", precio: "0", fotos: ["50544_1.jpg","50544_2.jpg","50544_3.jpg"] },
+    { codigo: "54209", nombre: "Aspiradora Xiaomi Mi Robot Vacuum H40 OV51 220V - Blanco", cat: "Electrónicos", precio: "0", fotos: ["54209_1.jpg","54209_2.jpg","54209_3.jpg"] },
+    { codigo: "47760", nombre: "Aspirador Xiaomi Mi Robot Vacumm S20+ B108GL Bivolt - Blanco", cat: "Electrónicos", precio: "0", fotos: ["47760_1.jpg","47760_2.jpg","47760_3.jpg"] },
+    { codigo: "54186", nombre: "Aspirador Xiaomi Mi Robot Vacuum S40 OV81 Bivolt - Blanco", cat: "Electrónicos", precio: "0", fotos: ["54186_1.jpg","54186_2.jpg","54186_3.jpg"] },
+    { codigo: "49057", nombre: "Aspirador Xiaomi Mi Robot Vacumm X20 Pro D102GL 220V - Blanco", cat: "Electrónicos", precio: "0", fotos: ["49057_1.jpg","49057_2.jpg","49057_3.jpg"] },
+    { codigo: "52201", nombre: "Balanza Digital Satellite A-WS8801 - 180KG", cat: "Electrónicos", precio: "0", fotos: ["52201_1.jpg","52201_2.jpg","52201_3.jpg"] },
+    { codigo: "52220", nombre: "Balanza Digital Xiaomi Smart Scale S200 MJTZC02YM", cat: "Electrónicos", precio: "0", fotos: ["52220_1.jpg","52220_2.jpg","52220_3.jpg"] },
+    { codigo: "35106", nombre: "Barbeador Quanta QTAPK20 Recargable - Gris (Kit 12 en 1)", cat: "Electrónicos", precio: "0", fotos: ["35106_1.jpg","35106_2.jpg","35106_3.jpg"] },
+    { codigo: "55719", nombre: "Cable Apple Lightning A USB MD819FE/A 2M - Blanco", cat: "Apple", precio: "0", fotos: ["55719_1.jpg","55719_2.jpg","55719_3.jpg"] },
+    { codigo: "35488", nombre: "Cable Apple USB-C Macho A USB-C MLL82ZM/A 2M", cat: "Apple", precio: "0", fotos: ["35488_1.jpg","35488_2.jpg","35488_3.jpg"] },
+    { codigo: "32023", nombre: "Cable Apple USB-C Macho A Lightning MM0A3AM/A 1M", cat: "Apple", precio: "0", fotos: ["32023_1.jpg","32023_2.jpg","32023_3.jpg"] },
+    { codigo: "49729", nombre: "Cable Apple USB-C Macho A Lightning MQGH2FE/A 2M", cat: "Apple", precio: "0", fotos: ["49729_1.jpg","49729_2.jpg","49729_3.jpg"] },
+    { codigo: "51040", nombre: "Cable Apple USB-C Macho A USB-C MW493ZM/A 1M", cat: "Apple", precio: "0", fotos: ["51040_1.jpg","51040_2.jpg","51040_3.jpg"] },
+    { codigo: "17248", nombre: "Cable de Energia para fuente y Gabinete - 1.3M", cat: "Periféricos", precio: "0", fotos: ["17248_1.jpg","17248_2.jpg","17248_3.jpg"] },
+    { codigo: "45747", nombre: "Cable de alimentación para fuente y Gabinete - 1.5M", cat: "Periféricos", precio: "0", fotos: ["45747_1.jpg","45747_2.jpg","45747_3.jpg"] },
+    { codigo: "52538", nombre: "Cable Adaptador FTX USB-C Macho para HDMI Hembra 4K", cat: "Periféricos", precio: "0", fotos: ["52538_1.jpg","52538_2.jpg","52538_3.jpg"] },
+    { codigo: "51918", nombre: "Cable Adaptador Satellite AL-80 USB-C Macho para HDMI 4K", cat: "Periféricos", precio: "0", fotos: ["51918_1.jpg","51918_2.jpg","51918_3.jpg"] },
+    { codigo: "21775", nombre: "Cable Adaptador USB 3.0 para HDMI Hembra - Negro", cat: "Periféricos", precio: "0", fotos: ["21775_1.jpg","21775_2.jpg","21775_3.jpg"] },
+    { codigo: "35278", nombre: "Cable Audio Estereo 2 Macho para 1 Audio Hembra", cat: "Periféricos", precio: "0", fotos: ["35278_1.jpg","35278_2.jpg","35278_3.jpg"] },
+    { codigo: "52542", nombre: "Cable Auxiliar Audio Estereo FTX 1M 3.5MM - Negro", cat: "Periféricos", precio: "0", fotos: ["52542_1.jpg","52542_2.jpg","52542_3.jpg"] },
+];
+
+let currentList = [...productos];
+let activeFilter = 'todos';
+
+function render(list) {
+  const grid = document.getElementById('prodGrid');
+  const count = document.getElementById('prodCount');
+  let filtered = list;
+  if (activeFilter === 'precio')    filtered = list.filter(p => p.precio !== '0');
+  if (activeFilter === 'consultar') filtered = list.filter(p => p.precio === '0');
+  count.textContent = filtered.length + ' productos';
+  if (!filtered.length) {
+    grid.innerHTML = `<div class="empty"><div class="e-icon">🔍</div><h3>Sin resultados</h3><p>Probá otro término o consultanos por WhatsApp</p></div>`;
+    return;
+  }
+  grid.innerHTML = filtered.map(p => {
+    const hasP = p.precio !== '0';
+    return `<div class="prod-card" onclick="openModal('${p.codigo}')">
+      ${!hasP ? '<span class="prod-badge ask">Consultar</span>' : ''}
+      <div class="prod-img">
+        <img src="assets/productos/${p.fotos[0]}"
+             onerror="this.src='https://placehold.co/200x200/1f2230/5a6080?text=DICENTER'"
+             alt="${p.nombre}">
+      </div>
+      <div class="prod-body">
+        <div class="prod-code">COD: ${p.codigo}</div>
+        <div class="prod-name">${p.nombre}</div>
+        ${hasP
+          ? `<div class="prod-price">Gs. ${p.precio}</div><button class="btn-card">Ver detalle</button>`
+          : `<div class="prod-price ask-price">Consultar precio</div><button class="btn-card wa">💬 WhatsApp</button>`}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function go(termino) {
+  if (event) event.preventDefault();
+  currentList = productos.filter(p =>
+    p.cat.toLowerCase().includes(termino.toLowerCase()) ||
+    p.nombre.toLowerCase().includes(termino.toLowerCase())
+  );
+  document.getElementById('sectionTitle').innerHTML = `Resultados: <span>"${termino}"</span>`;
+  document.getElementById('heroGrid').style.display = 'none';
+  render(currentList);
+  closeSidebar();
+  document.getElementById('prodGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function resetCatalog() {
+  currentList = [...productos];
+  activeFilter = 'todos';
+  document.getElementById('sectionTitle').innerHTML = 'Catálogo <span>completo</span>';
+  document.getElementById('searchInput').value = '';
+  document.querySelectorAll('.chip').forEach((c,i) => c.classList.toggle('on', i===0));
+  document.getElementById('heroGrid').style.display = 'grid';
+  render(currentList);
+}
+
+function setFilter(el, f) {
+  activeFilter = f;
+  document.querySelectorAll('.chip').forEach(c => c.classList.remove('on'));
+  el.classList.add('on');
+  render(currentList);
+}
+
+function handleNav(el, termino) {
+  if (window.innerWidth <= 768) {
+    const flyout = el.parentElement.querySelector('.flyout');
+    if (!flyout) { go(termino); return; }
+    const isOpen = flyout.classList.contains('mob-open');
+    document.querySelectorAll('.flyout').forEach(f => f.classList.remove('mob-open'));
+    if (!isOpen) flyout.classList.add('mob-open');
+  }
+  // Desktop: hover handles the flyout, click on label navigates
+}
+
+function openModal(cod) {
+  const p = productos.find(x => x.codigo === cod);
+  if (!p) return;
+  document.getElementById('mCode').textContent = 'Código: ' + p.codigo;
+  document.getElementById('mTitle').textContent = p.nombre;
+  const priceEl = document.getElementById('mPrice');
+  if (p.precio !== '0') { priceEl.className = 'modal-price'; priceEl.textContent = 'Gs. ' + p.precio; }
+  else { priceEl.className = 'modal-price ask'; priceEl.textContent = 'Precio a consultar'; }
+  const mainImg = document.getElementById('mImg');
+  mainImg.src = 'assets/productos/' + p.fotos[0];
+  mainImg.onerror = () => mainImg.src = 'https://placehold.co/300x300/1f2230/5a6080?text=DICENTER';
+  document.getElementById('mThumbs').innerHTML = p.fotos.map((f,i) =>
+    `<img src="assets/productos/${f}" class="${i===0?'on':''}" onerror="this.style.display='none'" onclick="swapImg(this,'assets/productos/${f}')">`
+  ).join('');
+  document.getElementById('mWaBtn').onclick = () => {
+    const msg = encodeURIComponent(`¡Hola DICENTER! Consulto por:\n📦 ${p.nombre}\n🔢 Código: ${p.codigo}${p.precio!=='0'?'\n💰 Gs. '+p.precio:''}\n¿Tienen disponibilidad?`);
+    window.open(`https://wa.me/5959XXXXXXXX?text=${msg}`, '_blank');
+  };
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function swapImg(el, src) {
+  document.getElementById('mImg').src = src;
+  document.querySelectorAll('#mThumbs img').forEach(t => t.classList.remove('on'));
+  el.classList.add('on');
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function checkClose(e) { if (e.target === document.getElementById('modal')) closeModal(); }
+
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('sidebarOverlay').classList.toggle('open');
+}
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebarOverlay').classList.remove('open');
+}
+
+document.getElementById('searchInput').addEventListener('input', e => {
+  const v = e.target.value.trim().toLowerCase();
+  if (!v) { resetCatalog(); return; }
+  currentList = productos.filter(p =>
+    p.nombre.toLowerCase().includes(v) ||
+    p.codigo.toLowerCase().includes(v) ||
+    p.cat.toLowerCase().includes(v)
+  );
+  document.getElementById('sectionTitle').innerHTML = `Búsqueda: <span>"${v}"</span>`;
+  document.getElementById('heroGrid').style.display = 'none';
+  render(currentList);
+});
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+render(currentList);
+</script>
 </body>
 </html>
