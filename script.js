@@ -165,10 +165,76 @@ function setFilter(el, f) {
 }
 
 /* ============================================
+   FLYOUT SYSTEM — Desktop
+   El flyout se mueve al <body> y se posiciona
+   con coordenadas absolutas para evitar que
+   el sidebar lo corte con overflow.
+   ============================================ */
+
+// Panel flotante único que se reutiliza
+const flyoutPanel = document.createElement('div');
+flyoutPanel.id = 'flyoutPanel';
+flyoutPanel.style.cssText = `
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  padding-left: 4px;
+`;
+flyoutPanel.innerHTML = '<div class="flyout-inner" id="flyoutInner"></div>';
+document.body.appendChild(flyoutPanel);
+
+let flyoutTimeout = null;
+let currentNavItem = null;
+
+// Al hacer mouseenter en un nav-item → muestra el flyout
+document.querySelectorAll('.nav-item').forEach(item => {
+  const label  = item.querySelector('.nav-label');
+  const flyout = item.querySelector('.flyout');
+
+  if (!flyout) return; // items sin submenú (Monitores, Gabinetes, etc.)
+
+  item.addEventListener('mouseenter', () => {
+    if (window.innerWidth <= 768) return;
+    clearTimeout(flyoutTimeout);
+    currentNavItem = item;
+
+    // Copia el contenido del flyout al panel flotante
+    const inner = flyout.querySelector('.flyout-inner');
+    const panelInner = document.getElementById('flyoutInner');
+    panelInner.innerHTML = inner.innerHTML;
+    panelInner.className = 'flyout-inner' + (inner.classList.contains('wide') ? ' wide' : '');
+
+    // Calcula posición basada en el nav-label
+    const rect = label.getBoundingClientRect();
+    flyoutPanel.style.top  = rect.top + 'px';
+    flyoutPanel.style.left = rect.right + 'px';
+    flyoutPanel.style.display = 'block';
+  });
+
+  item.addEventListener('mouseleave', () => {
+    if (window.innerWidth <= 768) return;
+    flyoutTimeout = setTimeout(hideFlyout, 120);
+  });
+});
+
+// Mantiene el flyout visible cuando el mouse entra al panel
+flyoutPanel.addEventListener('mouseenter', () => {
+  clearTimeout(flyoutTimeout);
+});
+flyoutPanel.addEventListener('mouseleave', () => {
+  flyoutTimeout = setTimeout(hideFlyout, 120);
+});
+
+function hideFlyout() {
+  flyoutPanel.style.display = 'none';
+  currentNavItem = null;
+}
+
+// Cierra el flyout al hacer scroll
+window.addEventListener('scroll', hideFlyout, { passive: true });
+
+/* ============================================
    MANEJO DEL NAV LABEL (click en categoría)
-   - Desktop: el hover ya muestra el flyout,
-     el click no hace nada extra (el usuario
-     navega por el flyout)
    - Mobile: abre/cierra el acordeón
    ============================================ */
 function handleNav(el, termino) {
@@ -177,9 +243,7 @@ function handleNav(el, termino) {
     if (!flyout) { go(termino); return; }
 
     const isOpen = flyout.classList.contains('mob-open');
-    // Cierra todos los flyouts abiertos
     document.querySelectorAll('.flyout').forEach(f => f.classList.remove('mob-open'));
-    // Abre el seleccionado si estaba cerrado
     if (!isOpen) flyout.classList.add('mob-open');
   }
 }
