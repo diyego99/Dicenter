@@ -200,7 +200,7 @@ body {
 .nav-label .lbl   { flex: 1; }
 .nav-label .arrow { font-size: 9px; opacity: .45; transition: transform .2s, opacity .2s; flex-shrink: 0; }
 
-/* --- Hover en Desktop: muestra el flyout --- */
+/* --- Hover en Desktop: lo maneja JavaScript --- */
 @media (min-width: 769px) {
   .nav-item:hover > .nav-label {
     color: var(--accent2);
@@ -210,67 +210,50 @@ body {
     transform: rotate(90deg);
     opacity: 1;
   }
-  .nav-item:hover > .flyout {
-    display: block;
-  }
-  /* Extiende el área de hover para cubrir el gap entre sidebar y flyout */
-  .nav-item { margin-right: -6px; }
+  /* El flyout original queda oculto siempre en desktop — JS mueve el contenido */
+  .nav-item .flyout { display: none !important; }
 }
 
 /* ============================================
-   FLYOUT (submenú flotante)
+   FLYOUT PANEL — posicionado por JS en body
    ============================================ */
-.flyout {
-  display: none;
-  position: absolute;
-  left: calc(100% - 6px);
-  top: 0;
-  z-index: 9500;
-  padding-left: 6px;
-  min-width: 220px;
+#flyoutPanel {
+  filter: drop-shadow(14px 8px 20px rgba(0,0,0,.7));
 }
 
-/* Puente invisible: evita que el hover se corte al cruzar el gap */
-.flyout::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 6px;
-}
-
-.flyout-inner {
+#flyoutPanel .flyout-inner {
   background: var(--card);
   border: 1px solid var(--border);
   border-left: 3px solid var(--accent);
   border-radius: 0 12px 12px 0;
-  box-shadow: 14px 8px 40px rgba(0, 0, 0, .7);
   padding: 8px 0;
   max-height: 80vh;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
+  min-width: 220px;
 }
 
-/* Grilla de 2 columnas para categorías con muchas subcategorías */
-.flyout-inner.wide {
+#flyoutPanel .flyout-inner.wide {
   min-width: 380px;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-.flyout-inner a {
+#flyoutPanel .flyout-inner a {
   display: block;
   padding: 9px 18px;
   font-size: 13px;
   color: var(--text-dim);
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, .03);
+  border-bottom: 1px solid rgba(255,255,255,.03);
   transition: color .15s, background .15s, padding-left .15s;
+  cursor: pointer;
 }
-.flyout-inner a:last-child { border-bottom: none; }
-.flyout-inner a:hover {
+#flyoutPanel .flyout-inner a:last-child { border-bottom: none; }
+#flyoutPanel .flyout-inner a:hover {
   color: var(--accent2);
-  background: rgba(26, 86, 219, .1);
+  background: rgba(26,86,219,.1);
   padding-left: 24px;
 }
 
