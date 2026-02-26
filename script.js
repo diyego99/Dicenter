@@ -338,8 +338,8 @@ document.getElementById('searchInput').addEventListener('input', e => {
   }
 
   currentList = productos.filter(p =>
-    p.nombre.toLowerCase().includes(v) ||
-    p.codigo.toLowerCase().includes(v) ||
+    p.cat.toLowerCase() === termino.toLowerCase() ||
+    p.nombre.toLowerCase().includes(termino.toLowerCase())
     p.cat.toLowerCase().includes(v)
   );
 
