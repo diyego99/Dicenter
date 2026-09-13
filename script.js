@@ -288,7 +288,7 @@ function openModal(cod) {
       `¡Hola DICENTER! Consulto por:\n📦 ${p.nombre}\n🔢 Código: ${p.codigo}` +
       `${p.precio !== '0' ? '\n💰 Gs. ' + p.precio : ''}\n¿Tienen disponibilidad?`
     );
-    window.open(`https://wa.me/5959XXXXXXXXXX?text=${msg}`, '_blank');
+    window.open(`https://wa.me/595985947849?text=${msg}`, '_blank');
   };
 
   document.getElementById('modal').classList.add('open');
