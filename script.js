@@ -286,8 +286,8 @@ function openModal(cod) {
   document.getElementById('mWaBtn').onclick = (e) => {
     e.preventDefault();
     const msg = encodeURIComponent(
-      `¡Hola DICENTER! Consulto por:\n📦 ${p.nombre || ''}\n🔢 Código: ${p.codigo || ''}` +
-      `${p.precio && p.precio !== '0' ? '\n💰 Gs. ' + p.precio : ''}\n¿Tienen disponibilidad?`
+      `¡Hola DICENTER! Consulto por:\n ${p.nombre || ''}\n Código: ${p.codigo || ''}` +
+      `${p.precio && p.precio !== '0' ? '\n Gs. ' + p.precio : ''}\n¿Tienen disponibilidad?`
     );
     window.location.href = `https://wa.me/595985947849?text=${msg}`;
   };
