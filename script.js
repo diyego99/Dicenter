@@ -14,7 +14,15 @@
    ============================================ */
 const productos = [
   { codigo: "56146", nombre: "Consola Sony PlayStation 5 Slim CFI-2115 B01X 825GB / Digital Edition / Bivolt - Blanco", cat: "Games", precio: "4.600.000", fotos: ["56146_1.jpg","56146_2.jpg","56146_3.jpg"] },
-  { codigo: "52372", nombre: "Tarjeta Gráfica Gigabyte Eagle OC 8GB GeForce RTX5060 GDDR7", cat: "VGA NVIDIA", precio: "3.900.000", fotos: ["52372_1.jpg","52372_2.jpg","52372_3.jpg"] },
+   { codigo: "39686", nombre: "Auricular JBL Tune T520BT Pure Bass / Bluetooth - Negro", cat: "Auriculares y Accesorios", precio: "240.000", fotos: ["39686_1.jpg","39686_2.jpg","39686_3.jpg"] },
+   { codigo: "52372", nombre: "Tarjeta Gráfica Gigabyte Eagle OC 8GB GeForce RTX5060 GDDR7", cat: "VGA NVIDIA", precio: "3.900.000", fotos: ["52372_1.jpg","52372_2.jpg","52372_3.jpg"] },
+   { codigo: "45699", nombre: "Micrófono JBL Quantum Stream Wireless", cat: "Micrófono", precio: "550.000", fotos: ["45699_1.jpg","45699_2.jpg","45699_3.jpg"] },
+   { codigo: "55608", nombre: "Auricular JBL Endurance Zone Sport / Bluetooth - Negro", cat: "Auriculares y Accesorios", precio: "650.000", fotos: ["55608_1.jpg","55608_2.jpg","55608_3.jpg"] },
+   { codigo: "48228", nombre: "Auricular Gamer Corsair HS80 Max Premium RGB / Wireless - Steel Gris", cat: "Auriculares y Accesorios", precio: "1.250.000", fotos: ["48228_1.jpg","48228_2.jpg","48228_3.jpg"] },
+   { codigo: "55152", nombre: "Fuente de Alimentación Corsair CX650M 650W ATX / Semi Modular / Cybenetics Bronze", cat: "Fuente de Alimentación", precio: "700.000", fotos: ["55152_1.jpg","55152_2.jpg","55152_3.jpg"] },
+   { codigo: "25965", nombre: "Speaker JBL PartyBox On-The-Go Essential Bluetooth - Negro", cat: "Audio", precio: "1.600.000", fotos: ["25965_1.jpg","25965_2.jpg","25965_3.jpg"] },
+   { codigo: "58118", nombre: "Dron Dji Lito X1", cat: "TVy Video", precio: "3.400.000", fotos: ["58118_1.jpg","58118_2.jpg","58118_3.jpg"] },   
+   
 ];
 
 /* ============================================
