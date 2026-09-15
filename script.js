@@ -19,6 +19,14 @@ const productos = [
   { codigo: "54984", nombre: "Apple iPhone 17 256GB / eSIM - Mist Blue", cat: "iPhone", precio: "6.300.000", fotos: ["54984_1.jpg","54984_2.jpg","54984_3.jpg"] },
   { codigo: "54336", nombre: "Apple iPhone 17 Pro Max 256GB / eSIM - Cosmic Orange", cat: "iPhone", precio: "9.000.000", fotos: ["54336_1.jpg","54336_2.jpg","54336_3.jpg"] },
   { codigo: "54262", nombre: "Apple iPhone 17 Pro 256GB / eSIM - Deep Blue", cat: "iPhone", precio: ".8.400.000", fotos: ["54262_1.jpg","54262_2.jpg","54262_3.jpg"] },
+  { codigo: "59067", nombre: "Apple Watch SE2 44MM / S-M / GPS Aluminium Sport Band - Midnight", cat: "Smartwatch", precio: "1.800.000", fotos: ["59067_1.jpg","59067_2.jpg","59067_3.jpg"] },
+  { codigo: "54687", nombre: "Apple Watch SE3 40MM / S-M / GPS - Midnight Aluminium / Midnight Sport Band", cat: "Smartwatch", precio: "1.900.000", fotos: ["54687_1.jpg","54687_2.jpg","54687_3.jpg"] },
+  { codigo: "54685", nombre: "Apple Watch SE3 40MM / S-M / GPS - Starlight Aluminium / Starlight Sport Band", cat: "Smartwatch", precio: "1.950.000", fotos: ["54685_1.jpg","54685_2.jpg","54685_3.jpg"] },
+  { codigo: "60051", nombre: "Aire Acondicionado Split HYE NAC12BR Kit 12000BTU / 220V / 60Hz / Wi-Fi (R410A)", cat: "Hogar y Decoracion", precio: "2.400.000", fotos: ["60051_1.jpg","60051_2.jpg","60051_3.jpg"] },
+  { codigo: "60734", nombre: "Aire Acondicionado Split Midea MD-12000 Kit 12000BTU 220V / 60Hz (R410A)", cat: "Hogar y Decoracion", precio: "2.750.000", fotos: ["60734_1.jpg","60734_2.jpg","60734_3.jpg"] },
+  { codigo: "50795", nombre: "Impresora 3D Bambu Lab PF002-M A1 Mini Bivolt - Gris", cat: "Impresoras", precio: "3.000.000", fotos: ["50795_1.jpg","50795_2.jpg","50795_3.jpg"] },
+  { codigo: "50792", nombre: "Impresora 3D Bambu Lab PF002-A A1 Bivolt - Gris", cat: "Impresoras", precio: "4.200.000", fotos: ["50792_1.jpg","50792_2.jpg","50792_3.jpg"] },
+  { codigo: "58770", nombre: "Impresora 3D Bambu Lab PF001-U US P1S / 500MM/S / Bivolt - Gris", cat: "Impresoras", precio: "6.200.000", fotos: ["50792_1.jpg","50792_2.jpg","50792_3.jpg"] },
 ];
 
 /* ============================================
