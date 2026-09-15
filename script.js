@@ -15,7 +15,10 @@ const productos = [
   { codigo: "48228", nombre: "Auricular Gamer Corsair HS80 Max Premium RGB / Wireless - Steel Gris", cat: "Auriculares y Accesorios", precio: "1.250.000", fotos: ["48228_1.jpg","48228_2.jpg","48228_3.jpg"] },
   { codigo: "55152", nombre: "Fuente de Alimentación Corsair CX650M 650W ATX / Semi Modular / Cybenetics Bronze", cat: "Fuente de Alimentación", precio: "700.000", fotos: ["55152_1.jpg","55152_2.jpg","55152_3.jpg"] },
   { codigo: "25965", nombre: "Speaker JBL PartyBox On-The-Go Essential Bluetooth - Negro", cat: "Audio", precio: "1.600.000", fotos: ["25965_1.jpg","25965_2.jpg","25965_3.jpg"] },
-  { codigo: "58118", nombre: "Dron Dji Lito X1", cat: "TV y Video", precio: "3.400.000", fotos: ["58118_1.jpg","58118_2.jpg","58118_3.jpg"] },   
+  { codigo: "58118", nombre: "Dron Dji Lito X1", cat: "TV y Video", precio: "3.400.000", fotos: ["58118_1.jpg","58118_2.jpg","58118_3.jpg"] },
+  { codigo: "54984", nombre: "Apple iPhone 17 256GB / eSIM - Mist Blue", cat: "iPhone", precio: "6.300.000", fotos: ["54984_1.jpg","54984_2.jpg","54984_3.jpg"] },
+  { codigo: "54336", nombre: "Apple iPhone 17 Pro Max 256GB / eSIM - Cosmic Orange", cat: "iPhone", precio: "9.000.000", fotos: ["54336_1.jpg","54336_2.jpg","54336_3.jpg"] },
+  { codigo: "54262", nombre: "Apple iPhone 17 Pro 256GB / eSIM - Deep Blue", cat: "iPhone", precio: ".8.400.000", fotos: ["54262_1.jpg","54262_2.jpg","54262_3.jpg"] },
 ];
 
 /* ============================================
