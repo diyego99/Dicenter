@@ -200,7 +200,6 @@ body {
 .nav-label .lbl   { flex: 1; }
 .nav-label .arrow { font-size: 9px; opacity: .45; transition: transform .2s, opacity .2s; flex-shrink: 0; }
 
-/* --- Hover en Desktop: lo maneja JavaScript --- */
 @media (min-width: 769px) {
   .nav-item:hover > .nav-label {
     color: var(--accent2);
@@ -210,12 +209,11 @@ body {
     transform: rotate(90deg);
     opacity: 1;
   }
-  /* El flyout original queda oculto siempre en desktop — JS mueve el contenido */
   .nav-item .flyout { display: none !important; }
 }
 
 /* ============================================
-   FLYOUT PANEL — posicionado por JS en body
+   FLYOUT PANEL
    ============================================ */
 #flyoutPanel {
   filter: drop-shadow(14px 8px 20px rgba(0,0,0,.7));
@@ -277,14 +275,14 @@ body {
 }
 
 /* ============================================
-   HERO BANNERS
+   HERO BANNERS & SLIDER
    ============================================ */
 .hero-grid {
   display: grid;
   grid-template-columns: 1.7fr 1fr;
   grid-template-rows: 200px 200px;
   gap: 14px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .hero-card {
@@ -308,12 +306,14 @@ body {
   inset: 0;
   background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
   background-size: 20px 20px;
+  pointer-events: none;
 }
 
 .hero-circle {
   position: absolute;
   border-radius: 50%;
   background: rgba(255, 255, 255, .05);
+  pointer-events: none;
 }
 .hero-circle.c1 { width: 260px; height: 260px; right: -60px; top: -60px; }
 .hero-circle.c2 { width: 130px; height: 130px; right: 60px;  bottom: -50px; }
@@ -365,6 +365,187 @@ body {
   transition: transform .2s;
 }
 .hero-card:hover .hero-cta { transform: translateX(4px); }
+
+/* --- ESTILOS DEL SLIDER PRINCIPAL --- */
+.hero-slider {
+  position: relative;
+}
+
+.slider-track {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slide-item {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  opacity: 0;
+  transition: opacity .6s ease-in-out;
+  pointer-events: none;
+  background: linear-gradient(135deg, #0d3a8e 0%, #051d55 100%);
+}
+
+.slide-item.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.slide-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+  filter: brightness(0.8);
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  z-index: 5;
+  transition: background .2s, transform .2s;
+}
+.slider-btn:hover { background: var(--accent); transform: translateY(-50%) scale(1.1); }
+.slider-btn.prev { left: 12px; }
+.slider-btn.next { right: 12px; }
+
+.slider-dots {
+  position: absolute;
+  bottom: 12px;
+  right: 20px;
+  display: flex;
+  gap: 6px;
+  z-index: 5;
+}
+
+.slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all .25s ease;
+}
+.slider-dot.active {
+  width: 22px;
+  border-radius: 8px;
+  background: var(--accent2);
+}
+
+/* ============================================
+   FILA EN MOVIMIENTO CONSTANTE (MARQUEE)
+   ============================================ */
+.marquee-container {
+  margin-bottom: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 0 16px;
+  overflow: hidden;
+}
+
+.marquee-title {
+  padding: 0 16px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--text-dim);
+}
+.marquee-title span { color: var(--accent2); }
+
+.marquee-wrapper {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  animation: scrollMarquee 35s linear infinite;
+}
+
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-card {
+  width: 220px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color .2s, transform .2s;
+}
+.marquee-card:hover {
+  border-color: var(--accent2);
+  transform: translateY(-2px);
+}
+
+.mq-img {
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  flex-shrink: 0;
+}
+.mq-img img { width: 100%; height: 100%; object-fit: contain; }
+
+.mq-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.mq-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.mq-price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--accent2);
+}
 
 /* ============================================
    SECTION HEADER
@@ -739,14 +920,12 @@ body {
   .btn-support,
   .btn-software { display: none; }
 
-  /* Sidebar oculto por defecto, se abre con el botón */
   .sidebar { transform: translateX(-100%); box-shadow: none; }
   .sidebar.open {
     transform: translateX(0);
     box-shadow: 6px 0 40px rgba(0, 0, 0, .7);
   }
 
-  /* Flyout en mobile: acordeón hacia abajo */
   .flyout {
     position: static;
     padding-left: 0;
@@ -780,8 +959,11 @@ body {
   .main { margin-left: 0; padding: 16px; }
 
   .hero-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
-  .hero-card.span2 { grid-row: span 1; }
+  .hero-card.span2 { grid-row: span 1; height: 260px; }
   .hero-title { font-size: 20px !important; }
+
+  .marquee-card { width: 190px; }
+  .mq-img { width: 42px; height: 42px; }
 
   .prod-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
 
