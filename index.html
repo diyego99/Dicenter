@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DICENTER | Tecnología y Hogar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -278,17 +278,85 @@
 
       <!-- Hero Banners -->
       <div class="hero-grid" id="heroGrid">
-        <div class="hero-card hc-1 span2" onclick="go('Apple')">
-          <div class="hero-dots"></div>
-          <div class="hero-circle c1"></div>
-          <div class="hero-circle c2"></div>
-          <div class="hero-content">
-            <div class="hero-tag">Ecosistema completo</div>
-            <div class="hero-title">Apple Premium</div>
-            <div class="hero-sub">iPhone · MacBook · iPad · Accesorios</div>
-            <span class="hero-cta">Ver productos →</span>
+        
+        <!-- Carrusel automático con 6 diapositivas en lugar del banner estático -->
+        <div class="hero-card hc-1 span2 hero-slider" id="mainSlider">
+          <div class="slider-track" id="sliderTrack">
+            <!-- Slide 1: Apple Original -->
+            <div class="slide-item active" onclick="go('Apple')">
+              <div class="hero-dots"></div>
+              <div class="hero-circle c1"></div>
+              <div class="hero-circle c2"></div>
+              <div class="hero-content">
+                <div class="hero-tag">Ecosistema completo</div>
+                <div class="hero-title">Apple Premium</div>
+                <div class="hero-sub">iPhone · MacBook · iPad · Accesorios</div>
+                <span class="hero-cta">Ver productos →</span>
+              </div>
+            </div>
+            <!-- Slide 2: Curiosidades / Tecnología -->
+            <div class="slide-item">
+              <img src="assets/banners/banner1.jpg" onerror="this.style.display='none'" class="slide-bg" alt="Curiosidades Tech">
+              <div class="hero-dots"></div>
+              <div class="hero-content">
+                <div class="hero-tag">¿Sabías qué?</div>
+                <div class="hero-title">Tips & Curiosidades Tech</div>
+                <div class="hero-sub">Todo lo nuevo que llega al mundo gamer e informático</div>
+                <span class="hero-cta">Explorar →</span>
+              </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="slide-item">
+              <img src="assets/banners/banner2.jpg" onerror="this.style.display='none'" class="slide-bg" alt="Gamer Setup">
+              <div class="hero-dots"></div>
+              <div class="hero-content">
+                <div class="hero-tag">Armá tu Setup</div>
+                <div class="hero-title">Rendimiento Extremo</div>
+                <div class="hero-sub">Componentes de última generación en stock</div>
+                <span class="hero-cta">Ver componentes →</span>
+              </div>
+            </div>
+            <!-- Slide 4 -->
+            <div class="slide-item">
+              <img src="assets/banners/banner3.jpg" onerror="this.style.display='none'" class="slide-bg" alt="Audio & Sonido">
+              <div class="hero-dots"></div>
+              <div class="hero-content">
+                <div class="hero-tag">Audio Pro</div>
+                <div class="hero-title">Sonido Impecable</div>
+                <div class="hero-sub">JBL, Corsair y las mejores marcas del mercado</div>
+                <span class="hero-cta">Ver audio →</span>
+              </div>
+            </div>
+            <!-- Slide 5 -->
+            <div class="slide-item">
+              <img src="assets/banners/banner4.jpg" onerror="this.style.display='none'" class="slide-bg" alt="Envíos a todo el país">
+              <div class="hero-dots"></div>
+              <div class="hero-content">
+                <div class="hero-tag">Ventas Online</div>
+                <div class="hero-title">Envíos Seguros</div>
+                <div class="hero-sub">Atención y seguimiento directo por WhatsApp</div>
+                <span class="hero-cta">Contactar →</span>
+              </div>
+            </div>
+            <!-- Slide 6 -->
+            <div class="slide-item">
+              <img src="assets/banners/banner5.jpg" onerror="this.style.display='none'" class="slide-bg" alt="Nuevos Ingresos">
+              <div class="hero-dots"></div>
+              <div class="hero-content">
+                <div class="hero-tag">Ingresos Semanales</div>
+                <div class="hero-title">Novedades DICENTER</div>
+                <div class="hero-sub">Actualizaciones constantes en nuestro catálogo digital</div>
+                <span class="hero-cta">Descubrir más →</span>
+              </div>
+            </div>
           </div>
+
+          <!-- Controles del Slider -->
+          <button class="slider-btn prev" onclick="event.stopPropagation(); prevSlide()">❮</button>
+          <button class="slider-btn next" onclick="event.stopPropagation(); nextSlide()">❯</button>
+          <div class="slider-dots" id="sliderDots"></div>
         </div>
+
         <div class="hero-card hc-2" onclick="go('VGA NVIDIA')">
           <div class="hero-dots"></div>
           <div class="hero-circle c1"></div>
@@ -308,6 +376,14 @@
             <div class="hero-sub">Velocidad extrema para tu equipo</div>
             <span class="hero-cta">Ver stock →</span>
           </div>
+        </div>
+      </div>
+
+      <!-- ===== NUEVA FILA EN MOVIMIENTO CONSTANTE (MARQUEE SLIDER) ===== -->
+      <div class="marquee-container" id="marqueeContainer">
+        <div class="marquee-title">🔥 <span>Productos Destacados</span> en constante rotación</div>
+        <div class="marquee-wrapper">
+          <div class="marquee-track" id="marqueeTrack"></div>
         </div>
       </div>
 
