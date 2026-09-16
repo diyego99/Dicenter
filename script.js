@@ -26,7 +26,7 @@ const productos = [
   { codigo: "60734", nombre: "Aire Acondicionado Split Midea MD-12000 Kit 12000BTU 220V / 60Hz (R410A)", cat: "Hogar y Decoracion", precio: "2.750.000", fotos: ["60734_1.jpg","60734_2.jpg","60734_3.jpg"] },
   { codigo: "50795", nombre: "Impresora 3D Bambu Lab PF002-M A1 Mini Bivolt - Gris", cat: "Impresoras", precio: "3.000.000", fotos: ["50795_1.jpg","50795_2.jpg","50795_3.jpg"] },
   { codigo: "50792", nombre: "Impresora 3D Bambu Lab PF002-A A1 Bivolt - Gris", cat: "Impresoras", precio: "4.200.000", fotos: ["50792_1.jpg","50792_2.jpg","50792_3.jpg"] },
-  { codigo: "58770", nombre: "Impresora 3D Bambu Lab PF001-U US P1S / 500MM/S / Bivolt - Gris", cat: "Impresoras", precio: "6.200.000", fotos: ["50792_1.jpg","50792_2.jpg","50792_3.jpg"] },
+  { codigo: "58770", nombre: "Impresora 3D Bambu Lab PF001-U US P1S / 500MM/S / Bivolt - Gris", cat: "Impresoras", precio: "6.200.000", fotos: ["58770_1.jpg","58770_2.jpg","58770_3.jpg"] },
 ];
 
 /* ============================================
