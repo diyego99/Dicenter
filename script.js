@@ -37,7 +37,7 @@ const productos = [
   { codigo: "48786", nombre: "Procesador Intel Core Ultra 5 245K Socket LGA 1851 / 24MB", cat: "CPU Intel", precio: "1.850.000", fotos: ["48786_1.jpg","48786_2.jpg","48786_3.jpg"] },
   { codigo: "50779", nombre: "Bebedero Quanta DuoAcqua QTBEM65 Mesa Natural / Frío / Bivolt - Blanco", cat: "Hogar y Decoración", precio: "300.000", fotos: ["50779_1.jpg","50779_2.jpg","50779_3.jpg"] },
   { codigo: "58622", nombre: "Compresor de Aire Xiaomi Mi Portable Electric Mijia Compact - Negro", cat: "Hogar y Decoración", precio: "275.000", fotos: ["58622_1.jpg","58622_2.jpg","58622_3.jpg"] },
-  { codigo: "51707", nombre: "Speaker JBL Flip 7 Bluetooth - Negro", cat: "Audio", precio: "275.000", fotos: ["51707_1.jpg","51707_2.jpg","51707_3.jpg"] },
+  { codigo: "51707", nombre: "Speaker JBL Flip 7 Bluetooth - Negro", cat: "Audio", precio: "650.000", fotos: ["51707_1.jpg","51707_2.jpg","51707_3.jpg"] },
   { codigo: "58652", nombre: "Auricular Xiaomi Redmi Buds 8 Pro / Bluetooth - Glacier Azul", cat: "Auriculares y Accesorios", precio: "420.000", fotos: ["58652_1.jpg","58652_2.jpg","58652_3.jpg"] },
   { codigo: "56709", nombre: "Proyector Blulory LED T6 Max 1200 Lumens - Blanco", cat: "Proyectores y Accesorios", precio: "800.000", fotos: ["56709_1.jpg","56709_2.jpg","56709_3.jpg"] },
   { codigo: "57121", nombre: "Monitor Gamer LG UltraGear 24G411A-B 24\" Full HD IPS 144Hz / 1Ms - Negro", cat: "Monitores", precio: "900.000", fotos: ["57121_1.jpg","57121_2.jpg","57121_3.jpg"] },
