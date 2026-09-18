@@ -7,7 +7,7 @@
    DATOS DE PRODUCTOS
    ============================================ */
 const productos = [
-  { codigo: "56146", nombre: "Consola Sony PlayStation 5 Slim CFI-2115 B01X 825GB / Digital Edition / Bivolt - Blanco", cat: "Games", precio: "4.600.000", fotos: ["56146_1.jpg","56146_2.jpg","56146_3.jpg"] },
+{ codigo: "56146", nombre: "Consola Sony PlayStation 5 Slim CFI-2115 B01X 825GB / Digital Edition / Bivolt - Blanco", cat: "Games", precio: "4.600.000", fotos: ["56146_1.jpg","56146_2.jpg","56146_3.jpg"] },
   { codigo: "39686", nombre: "Auricular JBL Tune T520BT Pure Bass / Bluetooth - Negro", cat: "Auriculares y Accesorios", precio: "240.000", fotos: ["39686_1.jpg","39686_2.jpg","39686_3.jpg"] },
   { codigo: "52372", nombre: "Tarjeta Gráfica Gigabyte Eagle OC 8GB GeForce RTX5060 GDDR7", cat: "VGA NVIDIA", precio: "3.900.000", fotos: ["52372_1.jpg","52372_2.jpg","52372_3.jpg"] },
   { codigo: "45699", nombre: "Micrófono JBL Quantum Stream Wireless", cat: "Micrófono", precio: "550.000", fotos: ["45699_1.jpg","45699_2.jpg","45699_3.jpg"] },
@@ -18,7 +18,7 @@ const productos = [
   { codigo: "58118", nombre: "Dron Dji Lito X1", cat: "TV y Video", precio: "3.400.000", fotos: ["58118_1.jpg","58118_2.jpg","58118_3.jpg"] },
   { codigo: "54984", nombre: "Apple iPhone 17 256GB / eSIM - Mist Blue", cat: "iPhone", precio: "6.300.000", fotos: ["54984_1.jpg","54984_2.jpg","54984_3.jpg"] },
   { codigo: "54336", nombre: "Apple iPhone 17 Pro Max 256GB / eSIM - Cosmic Orange", cat: "iPhone", precio: "9.000.000", fotos: ["54336_1.jpg","54336_2.jpg","54336_3.jpg"] },
-  { codigo: "54262", nombre: "Apple iPhone 17 Pro 256GB / eSIM - Deep Blue", cat: "iPhone", precio: ".8.400.000", fotos: ["54262_1.jpg","54262_2.jpg","54262_3.jpg"] },
+  { codigo: "54262", nombre: "Apple iPhone 17 Pro 256GB / eSIM - Deep Blue", cat: "iPhone", precio: "8.400.000", fotos: ["54262_1.jpg","54262_2.jpg","54262_3.jpg"] },
   { codigo: "59067", nombre: "Apple Watch SE2 44MM / S-M / GPS Aluminium Sport Band - Midnight", cat: "Smartwatch", precio: "1.800.000", fotos: ["59067_1.jpg","59067_2.jpg","59067_3.jpg"] },
   { codigo: "54687", nombre: "Apple Watch SE3 40MM / S-M / GPS - Midnight Aluminium / Midnight Sport Band", cat: "Smartwatch", precio: "1.900.000", fotos: ["54687_1.jpg","54687_2.jpg","54687_3.jpg"] },
   { codigo: "54685", nombre: "Apple Watch SE3 40MM / S-M / GPS - Starlight Aluminium / Starlight Sport Band", cat: "Smartwatch", precio: "1.950.000", fotos: ["54685_1.jpg","54685_2.jpg","54685_3.jpg"] },
@@ -30,7 +30,7 @@ const productos = [
   { codigo: "52621", nombre: "Headset Gamer Corsair VOID v2 / Wireless - Negro", cat: "Auriculares y Accesorios", precio: "850.000", fotos: ["52621_1.jpg","52621_2.jpg","52621_3.jpg"] },
   { codigo: "57727", nombre: "Aspiradora Samsung Powerbot-E VR5000 Wi-Fi / Bivolt - Negro", cat: "Hogar y Decoración", precio: "1.250.000", fotos: ["57727_1.jpg","57727_2.jpg","57727_3.jpg"] },
   { codigo: "52614", nombre: "Water Cooler para Procesador Corsair Nautilus 240 RS 240MM - Negro", cat: "Water Cooler", precio: "800.000", fotos: ["52614_1.jpg","52614_2.jpg","52614_3.jpg"] },
-  { codigo: "52849", nombre: "Monitor Gamer MSI Mag 255F E20 25" FHD 200Hz / 0.5Ms", cat: "Monitores", precio: "1.150.000", fotos: ["52849_1.jpg","52849_2.jpg","52849_3.jpg"] },
+  { codigo: "52849", nombre: "Monitor Gamer MSI Mag 255F E20 25\" FHD 200Hz / 0.5Ms", cat: "Monitores", precio: "1.150.000", fotos: ["52849_1.jpg","52849_2.jpg","52849_3.jpg"] },
   { codigo: "53467", nombre: "Mouse Gamer Corsair Scimitar Elite SE MMO Wireless - Gun Metal", cat: "Mouse", precio: "1.050.000", fotos: ["53467_1.jpg","53467_2.jpg","53467_3.jpg"] },
   { codigo: "47431", nombre: "Procesador AMD Ryzen 5 9600X Socket AM5 / 5.4GHz / 38MB", cat: "CPU AMD", precio: "1.850.000", fotos: ["47431_1.jpg","47431_2.jpg","47431_3.jpg"] },
   { codigo: "48786", nombre: "Procesador Intel Core Ultra 5 245K Socket LGA 1851 / 24MB", cat: "CPU AMD", precio: "1.850.000", fotos: ["48786_1.jpg","48786_2.jpg","48786_3.jpg"] },
@@ -40,15 +40,15 @@ const productos = [
   { codigo: "51707", nombre: "Speaker JBL Flip 7 Bluetooth - Negro", cat: "Audio", precio: "275.000", fotos: ["51707_1.jpg","51707_2.jpg","51707_3.jpg"] },
   { codigo: "58652", nombre: "Auricular Xiaomi Redmi Buds 8 Pro / Bluetooth - Glacier Azul", cat: "Auriculares y Accesorios", precio: "420.000", fotos: ["58652_1.jpg","58652_2.jpg","58652_3.jpg"] },
   { codigo: "56709", nombre: "Proyector Blulory LED T6 Max 1200 Lumens - Blanco", cat: "Proyectores y Accesorios", precio: "800.000", fotos: ["56709_1.jpg","56709_2.jpg","56709_3.jpg"] },
-  { codigo: "57121", nombre: "Monitor Gamer LG UltraGear 24G411A-B 24" Full HD IPS 144Hz / 1Ms - Negro", cat: "Monitores", precio: "900.000", fotos: ["57121_1.jpg","57121_2.jpg","57121_3.jpg"] },
+  { codigo: "57121", nombre: "Monitor Gamer LG UltraGear 24G411A-B 24\" Full HD IPS 144Hz / 1Ms - Negro", cat: "Monitores", precio: "900.000", fotos: ["57121_1.jpg","57121_2.jpg","57121_3.jpg"] },
   { codigo: "59877", nombre: "Patineta Eléctrico Xiaomi Scooter Lite - Negro", cat: "Deporte y Actividad", precio: "2.200.000", fotos: ["59877_1.jpg","59877_2.jpg","59877_3.jpg"] },
-  { codigo: "59305", nombre: "Tablet Xiaomi Pad 8 Pro 8GB de RAM / 256GB / Pantalla 11.2" - Gris", cat: "Tablets", precio: "3.900.000", fotos: ["59305_1.jpg","59305_2.jpg","59305_3.jpg"] },
+  { codigo: "59305", nombre: "Tablet Xiaomi Pad 8 Pro 8GB de RAM / 256GB / Pantalla 11.2\" - Gris", cat: "Tablets", precio: "3.900.000", fotos: ["59305_1.jpg","59305_2.jpg","59305_3.jpg"] },
   { codigo: "57118", nombre: "Cerradura Digital Satellite SL-84M Smart Door Lock 3D Face - Negro", cat: "Hogar y Decoración", precio: "850.000", fotos: ["57118_1.jpg","57118_2.jpg","57118_3.jpg"] },
   { codigo: "58816", nombre: "Anillo Smart Havit M7083-BK - Negro (8mm)", cat: "Reloj Inteligente y Accesorios", precio: "450.000", fotos: ["58816_1.jpg","58816_2.jpg","58816_3.jpg"] },
   { codigo: "56044", nombre: "Teclado Gamer Mecánico Ajazz AK820 Nacodexx USB / RGB / Moon Yellow / Inglés - Gris / Blanco", cat: "Teclados", precio: "300.000", fotos: ["56044_1.jpg","56044_2.jpg","56044_3.jpg"] },
   { codigo: "58227", nombre: "Headset Gamer Ajazz AHM08 Max / Wireless - Gris / Blanco", cat: "Auriculares y Accesorios", precio: "290.000", fotos: ["58227_1.jpg","58227_2.jpg","58227_3.jpg"] },
-  { codigo: "60534", nombre: "Notebook Lenovo IdeaPad Slim 3 15ITN9 Intel N150 Pantalla Full HD 15.6" / 8GB de RAM / 128GB UFS - Abyss Azul", cat: "Notebook", precio: "3.150.000", fotos: ["60534_1.jpg","60534_2.jpg","60534_3.jpg"] },
-  { codigo: "54855", nombre: "Ventilador FTX FS-40MF Brisa 16" / 220V - Negro", cat: "Hogar y Decoración", precio: "400.000", fotos: ["54855_1.jpg","54855_2.jpg","54855_3.jpg"] },
+  { codigo: "60534", nombre: "Notebook Lenovo IdeaPad Slim 3 15ITN9 Intel N150 Pantalla Full HD 15.6\" / 8GB de RAM / 128GB UFS - Abyss Azul", cat: "Notebook", precio: "3.150.000", fotos: ["60534_1.jpg","60534_2.jpg","60534_3.jpg"] },
+  { codigo: "54855", nombre: "Ventilador FTX FS-40MF Brisa 16\" / 220V - Negro", cat: "Hogar y Decoración", precio: "400.000", fotos: ["54855_1.jpg","54855_2.jpg","54855_3.jpg"] },
 ];
 
 /* ============================================
