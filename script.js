@@ -49,6 +49,9 @@ const productos = [
   { codigo: "58227", nombre: "Headset Gamer Ajazz AHM08 Max / Wireless - Gris / Blanco", cat: "Auriculares y Accesorios", precio: "290.000", fotos: ["58227_1.jpg","58227_2.jpg","58227_3.jpg"] },
   { codigo: "60534", nombre: "Notebook Lenovo IdeaPad Slim 3 15ITN9 Intel N150 Pantalla Full HD 15.6\" / 8GB de RAM / 128GB UFS - Abyss Azul", cat: "Notebook", precio: "3.150.000", fotos: ["60534_1.jpg","60534_2.jpg","60534_3.jpg"] },
   { codigo: "54855", nombre: "Ventilador FTX FS-40MF Brisa 16\" / 220V - Negro", cat: "Hogar y Decoración", precio: "400.000", fotos: ["54855_1.jpg","54855_2.jpg","54855_3.jpg"] },
+  { codigo: "61245", nombre: "Taladro Eléctrico Xiaomi Mijia Brushless Cordless Drill 2", cat: "Hogar y Decoración", precio: "600.000", fotos: ["61245_1.jpg","61245_2.jpg","61245_3.jpg"] },
+  { codigo: "53078", nombre: "Silla Gamer Satellite A-GC8601", cat: "Sillas y Mesas Gamer", precio: "400.000", fotos: ["53078_1.jpg","53078_2.jpg","53078_3.jpg"] },
+  { codigo: "55749", nombre: "Microondas Quanta QTMD30 30L 220V", cat: "Hogar y Decoración", precio: "650.000", fotos: ["55749_1.jpg","55749_2.jpg","55749_3.jpg"] },
 ];
 
 /* ============================================
