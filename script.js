@@ -52,6 +52,9 @@ const productos = [
   { codigo: "61245", nombre: "Taladro Eléctrico Xiaomi Mijia Brushless Cordless Drill 2", cat: "Hogar y Decoración", precio: "600.000", fotos: ["61245_1.jpg","61245_2.jpg","61245_3.jpg"] },
   { codigo: "53078", nombre: "Silla Gamer Satellite A-GC8601", cat: "Sillas y Mesas Gamer", precio: "400.000", fotos: ["53078_1.jpg","53078_2.jpg","53078_3.jpg"] },
   { codigo: "55749", nombre: "Microondas Quanta QTMD30 30L 220V", cat: "Hogar y Decoración", precio: "650.000", fotos: ["55749_1.jpg","55749_2.jpg","55749_3.jpg"] },
+  { codigo: "30433", nombre: "Auricular Gamer Razer Blackshark V2 X - Con Cable", cat: "Auriculares y Accesorios", precio: "340.000", fotos: ["30433_1.jpg","30433_2.jpg","30433_3.jpg"] },
+  { codigo: "60367", nombre: "Auricular Gamer Razer Kraken Kitty V2 RGB - Bluetooth", cat: "Auriculares y Accesorios", precio: "850.000", fotos: ["60367_1.jpg","60367_2.jpg","60367_3.jpg"] },
+  { codigo: "53926", nombre: "Triciclo Eléctrico HYE TR01 - Bluetooth - Speaker - LED - 6.5P", cat: "Deporte y Actividad", precio: "750.000", fotos: ["53926_1.jpg","53926_2.jpg","53926_3.jpg"] },
 ];
 
 /* ============================================
