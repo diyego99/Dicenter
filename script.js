@@ -55,6 +55,9 @@ const productos = [
   { codigo: "30433", nombre: "Auricular Gamer Razer Blackshark V2 X - Con Cable", cat: "Auriculares y Accesorios", precio: "340.000", fotos: ["30433_1.jpg","30433_2.jpg","30433_3.jpg"] },
   { codigo: "60367", nombre: "Auricular Gamer Razer Kraken Kitty V2 RGB - Bluetooth", cat: "Auriculares y Accesorios", precio: "850.000", fotos: ["60367_1.jpg","60367_2.jpg","60367_3.jpg"] },
   { codigo: "53926", nombre: "Triciclo Eléctrico HYE TR01 - Bluetooth - Speaker - LED - 6.5P", cat: "Deporte y Actividad", precio: "750.000", fotos: ["53926_1.jpg","53926_2.jpg","53926_3.jpg"] },
+  { codigo: "49745", nombre: "Auricular JBL Endurance Race 2 Waterproof TWS - Bluetooth", cat: "Auriculares y Accesorios", precio: "405.000", fotos: ["49745_1.jpg","49745_2.jpg","49745_3.jpg"] },
+  { codigo: "37678", nombre: "Auricular JBL Quantum TWS - Bluetooth", cat: "Auriculares y Accesorios", precio: "460.000", fotos: ["37678_1.jpg","37678_2.jpg","37678_3.jpg"] },
+  { codigo: "58566", nombre: "Auricular JBL Tune T780NC Pure Bass - Bluetooth", cat: "Auriculares y Accesorios", precio: "550.000", fotos: ["58566_1.jpg","58566_2.jpg","58566_3.jpg"] },
 ];
 
 /* ============================================
