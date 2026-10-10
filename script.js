@@ -58,6 +58,13 @@ const productos = [
   { codigo: "49745", nombre: "Auricular JBL Endurance Race 2 Waterproof TWS - Bluetooth", cat: "Auriculares y Accesorios", precio: "405.000", fotos: ["49745_1.jpg","49745_2.jpg","49745_3.jpg"] },
   { codigo: "37678", nombre: "Auricular JBL Quantum TWS - Bluetooth", cat: "Auriculares y Accesorios", precio: "460.000", fotos: ["37678_1.jpg","37678_2.jpg","37678_3.jpg"] },
   { codigo: "58566", nombre: "Auricular JBL Tune T780NC Pure Bass - Bluetooth", cat: "Auriculares y Accesorios", precio: "550.000", fotos: ["58566_1.jpg","58566_2.jpg","58566_3.jpg"] },
+  { codigo: "27000", nombre: "SSD Kingston 240GB 2.5 SATA 3", cat: "SSD", precio: "450.000", fotos: ["27000_1.jpg","27000_2.jpg","27000_3.jpg"] },
+  { codigo: "28837", nombre: "SSD Macrovip 480GB 2.5 SATA 3", cat: "SSD", precio: "480.000", fotos: ["28837_1.jpg","28837_2.jpg","28837_3.jpg"] },
+  { codigo: "37916", nombre: "SSD Patriot 1TB P220 2.5 SATA 3", cat: "SSD", precio: "950.000", fotos: ["37916_1.jpg","37916_2.jpg","37916_3.jpg"] },
+  { codigo: "56472", nombre: "TV Smart Xiaomi TV 32P HD - LED ", cat: "TV y Video", precio: "1.000.000", fotos: ["56472_1.jpg","56472_2.jpg","56472_3.jpg"] },
+  { codigo: "52464", nombre: "TV Smart Mtek MK43FSGF 43P Full HD - Android - LED", cat: "TV y Video", precio: "1.550.000", fotos: ["52464_1.jpg","52464_2.jpg","52464_3.jpg"] },
+  { codigo: "50499", nombre: "TV Smart Mtek MKQ55FSGU 55P Ultra HD - 4K - QLED", cat: "TV y Video", precio: "2.950.000", fotos: ["50499_1.jpg","50499_2.jpg","50499_3.jpg"] },
+  { codigo: "47625", nombre: "Gabinete Gamer Satellite K51 E-ATX - 8 Cooler", cat: "Gabinetes", precio: "570.000", fotos: ["47625_1.jpg","47625_2.jpg","47625_3.jpg"] },
 ];
 
 /* ============================================
