@@ -65,6 +65,9 @@ const productos = [
   { codigo: "52464", nombre: "TV Smart Mtek MK43FSGF 43P Full HD - Android - LED", cat: "TV y Video", precio: "1.550.000", fotos: ["52464_1.jpg","52464_2.jpg","52464_3.jpg"] },
   { codigo: "50499", nombre: "TV Smart Mtek MKQ55FSGU 55P Ultra HD - 4K - QLED", cat: "TV y Video", precio: "2.950.000", fotos: ["50499_1.jpg","50499_2.jpg","50499_3.jpg"] },
   { codigo: "47625", nombre: "Gabinete Gamer Satellite K51 E-ATX - 8 Cooler", cat: "Gabinetes", precio: "570.000", fotos: ["47625_1.jpg","47625_2.jpg","47625_3.jpg"] },
+  { codigo: "28197", nombre: "JBL Charge 5 Bluetooth", cat: "Audio", precio: "750.000", fotos: ["28197_1.jpg","28197_2.jpg","28197_3.jpg"] },
+  { codigo: "28197", nombre: "Cámara de Acción Gopro Lit Hero 4K 12MP 4K30+2.7K60", cat: "TV y Video", precio: "1.600.000", fotos: ["61135_1.jpg","61135_2.jpg","61135_3.jpg"] },
+  { codigo: "59008", nombre: "Cargador Portátil Xiaomi Magnetic 10000MAH USB-C", cat: "Energía", precio: "260.000", fotos: ["59008_1.jpg","59008_2.jpg","59008_3.jpg"] },
 ];
 
 /* ============================================
