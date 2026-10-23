@@ -68,6 +68,9 @@ const productos = [
   { codigo: "28197", nombre: "JBL Charge 5 Bluetooth", cat: "Audio", precio: "750.000", fotos: ["28197_1.jpg","28197_2.jpg","28197_3.jpg"] },
   { codigo: "28197", nombre: "Cámara de Acción Gopro Lit Hero 4K 12MP 4K30+2.7K60", cat: "TV y Video", precio: "1.600.000", fotos: ["61135_1.jpg","61135_2.jpg","61135_3.jpg"] },
   { codigo: "59008", nombre: "Cargador Portátil Xiaomi Magnetic 10000MAH USB-C", cat: "Energía", precio: "260.000", fotos: ["59008_1.jpg","59008_2.jpg","59008_3.jpg"] },
+  { codigo: "57043", nombre: "Reloj Inteligente Haylou Watch 4S HF012", cat: "Reloj Inteligente y Accesorios", precio: "290.000", fotos: ["57043_1.jpg","57043_2.jpg","57043_3.jpg"] },
+  { codigo: "57735", nombre: "Reloj Inteligente Mibro Watch Fit XPAW027", cat: "Reloj Inteligente y Accesorios", precio: "420.000", fotos: ["57735_1.jpg","57735_2.jpg","57735_3.jpg"] },
+  { codigo: "58056", nombre: "Reloj Inteligente Xiaomi Redmi Watch 6 M2523W1", cat: "Reloj Inteligente y Accesorios", precio: "290.000", fotos: ["58056_1.jpg","58056_2.jpg","58056_3.jpg"] },
 ];
 
 /* ============================================
