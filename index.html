@@ -11,7 +11,7 @@
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
+
   <header class="header">
     <div class="logo-wrap" onclick="resetCatalog()">
       <img src="logo.png" alt="DICENTER"
@@ -26,17 +26,17 @@
     </div>
   </header>
 
-  <!-- Overlay para cerrar sidebar en mobile -->
+
   <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 
   <div class="layout">
 
-    <!-- ===== SIDEBAR ===== -->
+
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-sec-title">Categorías</div>
       <div class="nav-section">
 
-        <!-- Apple -->
+
         <div class="nav-item">
           <div class="nav-label" onclick="handleNav(this, 'Apple')">
             <span class="ico"></span><span class="lbl">Apple</span><span class="arrow">▶</span>
@@ -61,7 +61,7 @@
           </div>
         </div>
 
-        <!-- Notebook y Computadoras -->
+
         <div class="nav-item">
           <div class="nav-label" onclick="handleNav(this, 'Notebook')">
             <span class="ico"></span><span class="lbl">Notebook y Computadoras</span><span class="arrow">▶</span>
@@ -79,7 +79,7 @@
           </div>
         </div>
 
-        <!-- Almacenamiento -->
+
         <div class="nav-item">
           <div class="nav-label" onclick="handleNav(this, 'SSD')">
             <span class="ico"></span><span class="lbl">Almacenamiento</span><span class="arrow">▶</span>
@@ -95,7 +95,7 @@
           </div>
         </div>
 
-        <!-- Placas Madres -->
+
         <div class="nav-item">
           <div class="nav-label" onclick="handleNav(this, 'MB')">
             <span class="ico"></span><span class="lbl">Placas Madres</span><span class="arrow">▶</span>
@@ -108,7 +108,7 @@
           </div>
         </div>
 
-        <!-- Tarjetas Gráficas -->
+
         <div class="nav-item">
           <div class="nav-label" onclick="handleNav(this, 'VGA')">
             <span class="ico"></span><span class="lbl">Tarjetas Gráficas</span><span class="arrow">▶</span>
@@ -121,7 +121,7 @@
           </div>
         </div>
 
-        <!-- Procesadores -->
+
         <div class="nav-item">
           <div class="nav-label" onclick="handleNav(this, 'CPU')">
             <span class="ico"></span><span class="lbl">Procesadores</span><span class="arrow">▶</span>
@@ -134,7 +134,7 @@
           </div>
         </div>
 
-        <!-- Cooler -->
+
         <div class="nav-item">
           <div class="nav-label" onclick="handleNav(this, 'Cooler')">
             <span class="ico"></span><span class="lbl">Cooler</span><span class="arrow">▶</span>
@@ -150,28 +150,28 @@
           </div>
         </div>
 
-        <!-- Fuente de Alimentación -->
+
         <div class="nav-item">
           <div class="nav-label" onclick="go('Fuentes')">
             <span class="ico"></span><span class="lbl">Fuente de Alimentación</span>
           </div>
         </div>
 
-        <!-- Monitores -->
+
         <div class="nav-item">
           <div class="nav-label" onclick="go('Monitores')">
             <span class="ico"></span><span class="lbl">Monitores</span>
           </div>
         </div>
 
-        <!-- Gabinetes -->
+
         <div class="nav-item">
           <div class="nav-label" onclick="go('Gabinetes')">
             <span class="ico"></span><span class="lbl">Gabinetes</span>
           </div>
         </div>
 
-        <!-- Impresoras y Suministros -->
+
         <div class="nav-item">
           <div class="nav-label" onclick="handleNav(this, 'Impresoras')">
             <span class="ico"></span><span class="lbl">Impresoras y Suministros</span><span class="arrow">▶</span>
@@ -185,7 +185,7 @@
           </div>
         </div>
 
-        <!-- Periféricos -->
+
         <div class="nav-item">
           <div class="nav-label" onclick="handleNav(this, 'Periféricos')">
             <span class="ico"></span><span class="lbl">Periféricos</span><span class="arrow">▶</span>
@@ -217,7 +217,7 @@
           </div>
         </div>
 
-        <!-- Red y Internet -->
+
         <div class="nav-item">
           <div class="nav-label" onclick="handleNav(this, 'Router')">
             <span class="ico"></span><span class="lbl">Red y Internet</span><span class="arrow">▶</span>
@@ -233,7 +233,7 @@
           </div>
         </div>
 
-        <!-- Celulares y Tablets -->
+
         <div class="nav-item">
           <div class="nav-label" onclick="handleNav(this, 'Celulares')">
             <span class="ico"></span><span class="lbl">Celulares y Tablets</span><span class="arrow">▶</span>
@@ -248,7 +248,7 @@
           </div>
         </div>
 
-        <!-- Electrónicos -->
+
         <div class="nav-item">
           <div class="nav-label" onclick="handleNav(this, 'Electrónicos')">
             <span class="ico"></span><span class="lbl">Electrónicos</span><span class="arrow">▶</span>
@@ -274,16 +274,16 @@
       </div>
     </aside>
 
-    <!-- ===== MAIN ===== -->
+
     <main class="main" id="mainArea">
 
-      <!-- Hero Banners -->
+   
       <div class="hero-grid" id="heroGrid">
         
-        <!-- Carrusel automático con 6 diapositivas en lugar del banner estático -->
+
         <div class="hero-card hc-1 span2 hero-slider" id="mainSlider">
           <div class="slider-track" id="sliderTrack">
-            <!-- Slide 1: Apple Original -->
+
             <div class="slide-item active" onclick="go('Apple')">
               <div class="hero-dots"></div>
               <div class="hero-circle c1"></div>
@@ -295,7 +295,7 @@
                 <span class="hero-cta">Ver productos →</span>
               </div>
             </div>
-            <!-- Slide 2: Curiosidades / Tecnología -->
+
             <div class="slide-item">
               <img src="assets/banners/banner1.jpg" onerror="this.style.display='none'" class="slide-bg" alt="Curiosidades Tech">
               <div class="hero-dots"></div>
@@ -306,11 +306,11 @@
                 <span class="hero-cta">Explorar →</span>
               </div>
             </div>
-            <!-- Slide 3 -->
+
 <div class="slide-item" onclick="window.location.href='https://wa.me/595985947849?text=Hola%20DICENTER!%20Quiero%20saber%20los%20t%C3%A9rminos%20y%20condiciones%20para%20env%C3%ADos.'">
     <img src="assets/banners/banner2.jpg" onerror="this.style.display='none'" class="slide-bg" alt="Términos y condiciones para envíos" style="opacity: 1; filter: none; object-fit: cover; width: 100%; height: 100%;">
   </div>
-            <!-- Slide 4 -->
+
             <div class="slide-item">
               <img src="assets/banners/banner3.jpg" onerror="this.style.display='none'" class="slide-bg" alt="Audio & Sonido">
               <div class="hero-dots"></div>
@@ -321,7 +321,7 @@
                 <span class="hero-cta">Ver audio →</span>
               </div>
             </div>
-            <!-- Slide 5 -->
+
             <div class="slide-item">
               <img src="assets/banners/banner4.jpg" onerror="this.style.display='none'" class="slide-bg" alt="Envíos a todo el país">
               <div class="hero-dots"></div>
@@ -332,7 +332,7 @@
                 <span class="hero-cta">Contactar →</span>
               </div>
             </div>
-            <!-- Slide 6 -->
+
             <div class="slide-item">
               <img src="assets/banners/banner5.jpg" onerror="this.style.display='none'" class="slide-bg" alt="Nuevos Ingresos">
               <div class="hero-dots"></div>
@@ -345,7 +345,7 @@
             </div>
           </div>
 
-          <!-- Controles del Slider -->
+
           <button class="slider-btn prev" onclick="event.stopPropagation(); prevSlide()">❮</button>
           <button class="slider-btn next" onclick="event.stopPropagation(); nextSlide()">❯</button>
           <div class="slider-dots" id="sliderDots"></div>
@@ -373,7 +373,7 @@
         </div>
       </div>
 
-      <!-- ===== NUEVA FILA EN MOVIMIENTO CONSTANTE (MARQUEE SLIDER) ===== -->
+
       <div class="marquee-container" id="marqueeContainer">
         <div class="marquee-title"> <span>Productos Destacados</span> </div>
         <div class="marquee-wrapper">
@@ -381,25 +381,25 @@
         </div>
       </div>
 
-      <!-- Section Header -->
+
       <div class="section-head">
         <h2 class="section-title" id="sectionTitle">Catálogo <span>completo</span></h2>
         <button class="btn-reset" onclick="resetCatalog()">↩ Ver todo</button>
       </div>
 
-      <!-- Filter Bar -->
+
       <div class="filter-bar">
         <button class="chip on" onclick="setFilter(this, 'todos')">Todos</button>
         <span class="prod-count" id="prodCount"></span>
       </div>
 
-      <!-- Product Grid -->
+
       <div class="prod-grid" id="prodGrid"></div>
 
     </main>
   </div>
 
-  <!-- ===== MODAL ===== -->
+
   <div class="modal-overlay" id="modal" onclick="checkClose(event)">
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal()">✕</button>
@@ -419,7 +419,7 @@
     </div>
   </div>
 
-  <!-- Botón mobile para abrir categorías -->
+
   <button class="mob-cat-btn" onclick="toggleSidebar()">☰ Categorías</button>
 
   <script src="script.js"></script>
