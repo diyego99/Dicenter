@@ -71,6 +71,11 @@ const productos = [
   { codigo: "57043", nombre: "Reloj Inteligente Haylou Watch 4S HF012", cat: "Reloj Inteligente y Accesorios", precio: "290.000", fotos: ["57043_1.jpg","57043_2.jpg","57043_3.jpg"] },
   { codigo: "57735", nombre: "Reloj Inteligente Mibro Watch Fit XPAW027", cat: "Reloj Inteligente y Accesorios", precio: "420.000", fotos: ["57735_1.jpg","57735_2.jpg","57735_3.jpg"] },
   { codigo: "58056", nombre: "Reloj Inteligente Xiaomi Redmi Watch 6 M2523W1", cat: "Reloj Inteligente y Accesorios", precio: "630.000", fotos: ["58056_1.jpg","58056_2.jpg","58056_3.jpg"] },
+  { codigo: "27232", nombre: "Consola XBOX Serie S 512GB SSD - All Digital - 120FPS - Bivolt - Americano", cat: "Games", precio: "3.800.000", fotos: ["27232_1.jpg","27232_2.jpg","27232_3.jpg"] },
+  { codigo: "48635", nombre: "Alarma Hikvision AX Pro Kit Wi-Fi - Blanco", cat: "Monitoreo y Seguridad", precio: "1.050.000", fotos: ["48635_1.jpg","48635_2.jpg","48635_3.jpg"] },
+  { codigo: "48538", nombre: "Aire Acondicionado Portátil Midea 12000BTU - 220V - 60Hz - Frio", cat: "Hogar y Decoración", precio: "2.680.000", fotos: ["48538_1.jpg","48538_2.jpg","48538_3.jpg"] },
+  { codigo: "48195", nombre: "Soundbar JBL Cinema 2.1 SB180 Bluetooth - USB - HDMI", cat: "Audio", precio: "1.180.000", fotos: ["48195_1.jpg","48195_2.jpg","48195_3.jpg"] },
+  { codigo: "48034", nombre: "Cafetera Quanta Pure Flavour 220V", cat: "Hogar y Decoración", precio: "620.000", fotos: ["48034_1.jpg","48034_2.jpg","48034_3.jpg"] },
 ];
 
 /* ============================================
