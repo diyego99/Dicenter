@@ -76,6 +76,10 @@ const productos = [
   { codigo: "48538", nombre: "Aire Acondicionado Portátil Midea 12000BTU - 220V - 60Hz - Frio", cat: "Hogar y Decoración", precio: "2.680.000", fotos: ["48538_1.jpg","48538_2.jpg","48538_3.jpg"] },
   { codigo: "48195", nombre: "Soundbar JBL Cinema 2.1 SB180 Bluetooth - USB - HDMI", cat: "Audio", precio: "1.180.000", fotos: ["48195_1.jpg","48195_2.jpg","48195_3.jpg"] },
   { codigo: "48034", nombre: "Cafetera Quanta Pure Flavour 220V", cat: "Hogar y Decoración", precio: "620.000", fotos: ["48034_1.jpg","48034_2.jpg","48034_3.jpg"] },
+  { codigo: "58567", nombre: "Amazon Fire TV Stick HD / 8GB / Wi-Fi 6 / Alexa", cat: "TV Y VIDEO", precio: "270.000", fotos: ["58567_1.jpg","58567_2.jpg","58567_3.jpg"] },
+  { codigo: "41219", nombre: "Reloj Inteligente Amazfit Bip 5 A2215", cat: "Reloj Inteligente y Accesorios", precio: "650.000", fotos: ["41219_1.jpg","41219_2.jpg","41219_3.jpg"] },
+  { codigo: "52866", nombre: "Cargador Portátil Xiaomi Ultra Slim Power Bank 5000MAH / USB C / 20W", cat: "Energía", precio: "180.000", fotos: ["52866_1.jpg","52866_2.jpg","52866_3.jpg"] },
+  { codigo: "43426", nombre: "Aspiradora Tp-Link Robot Vacuum-mop Cleaner Tapo RV10", cat: "Hogar y Decoración", precio: "1.070.000", fotos: ["43426_1.jpg","43426_2.jpg","43426_3.jpg"] },
 ];
 
 /* ============================================
