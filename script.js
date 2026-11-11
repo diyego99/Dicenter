@@ -80,6 +80,10 @@ const productos = [
   { codigo: "41219", nombre: "Reloj Inteligente Amazfit Bip 5 A2215", cat: "Reloj Inteligente y Accesorios", precio: "650.000", fotos: ["41219_1.jpg","41219_2.jpg","41219_3.jpg"] },
   { codigo: "52866", nombre: "Cargador Portátil Xiaomi Ultra Slim Power Bank 5000MAH / USB C / 20W", cat: "Energía", precio: "180.000", fotos: ["52866_1.jpg","52866_2.jpg","52866_3.jpg"] },
   { codigo: "43426", nombre: "Aspiradora Tp-Link Robot Vacuum-mop Cleaner Tapo RV10", cat: "Hogar y Decoración", precio: "1.070.000", fotos: ["43426_1.jpg","43426_2.jpg","43426_3.jpg"] },
+  { codigo: "60834", nombre: "Rastreador Apple AirTag MFEA4LL/A Bluetooth - 2ª Generación", cat: "Rastreador y GPS", precio: "850.000", fotos: ["60834_1.jpg","60834_2.jpg","60834_3.jpg"] },
+  { codigo: "58801", nombre: "Apple Pencil MXN43ZM/A 2ª Generación", cat: "Accesorios", precio: "650.000", fotos: ["58801_1.jpg","58801_2.jpg","58801_3.jpg"] },
+  { codigo: "41166", nombre: "Repetidor de Señal Tp-Link RE550 AC1900 Mesh WIFI Dual Band - 3 Antenas", cat: "Router y Repetidor", precio: "420.000", fotos: ["41166_1.jpg","41166_2.jpg","41166_3.jpg"] },
+  { codigo: "62016", nombre: "Micrófono Boya BY-XM6-K4 Wireless para Smartphone - Lightning", cat: "Micrófono", precio: "1.280.000", fotos: ["62016_1.jpg","62016_2.jpg","62016_3.jpg"] },
 ];
 
 /* ============================================
