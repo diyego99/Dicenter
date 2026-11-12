@@ -84,6 +84,10 @@ const productos = [
   { codigo: "58801", nombre: "Apple Pencil MXN43ZM/A 2ª Generación", cat: "Accesorios", precio: "650.000", fotos: ["58801_1.jpg","58801_2.jpg","58801_3.jpg"] },
   { codigo: "41166", nombre: "Repetidor de Señal Tp-Link RE550 AC1900 Mesh WIFI Dual Band - 3 Antenas", cat: "Router y Repetidor", precio: "420.000", fotos: ["41166_1.jpg","41166_2.jpg","41166_3.jpg"] },
   { codigo: "62016", nombre: "Micrófono Boya BY-XM6-K4 Wireless para Smartphone - Lightning", cat: "Micrófono", precio: "1.280.000", fotos: ["62016_1.jpg","62016_2.jpg","62016_3.jpg"] },
+  { codigo: "36363", nombre: "Speaker Amazon Echo Dot 5 Generación - Alexa - Bluetooth", cat: "Audio", precio: "480.000", fotos: ["36363_1.jpg","36363_2.jpg","36363_3.jpg"] },
+  { codigo: "39160", nombre: "Auricular Gamer JBL Quantum 910 RGB - Wireless", cat: "Auriculares y Accesorios", precio: "1.380.000", fotos: ["39160_1.jpg","39160_2.jpg","39160_3.jpg"] },
+  { codigo: "60477", nombre: "Teclado Gamer Mecánico Redragon K556GBP-RGB Devarajas USB - RGB", cat: "Teclados", precio: "435.000", fotos: ["60477_1.jpg","60477_2.jpg","60477_3.jpg"] },
+  { codigo: "59715", nombre: "Reloj Inteligente Realme Watch S5 RMW2502", cat: "Reloj Inteligente y Accesorios", precio: "690.000", fotos: ["59715_1.jpg","59715_2.jpg","59715_3.jpg"] },
 ];
 
 /* ============================================
